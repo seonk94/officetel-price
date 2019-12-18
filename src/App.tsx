@@ -16,10 +16,8 @@ import Toolbar from '../node_modules/@material-ui/core/Toolbar';
 import Typography from '../node_modules/@material-ui/core/Typography';
 import { makeStyles, useTheme, Theme, createStyles } from '../node_modules/@material-ui/core/styles';
 import Router from './Router'
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import TodayScreen from './Screens/TodayScreen'
-import CalendarScreen from './Screens/CalendarScreen'
-import ChartScreen from './Screens/ChartScreen'
+import { BrowserRouter } from 'react-router-dom';
+
 const colorTheme = createMuiTheme({
   palette: {
     primary: {
@@ -157,12 +155,7 @@ export default function App(props: ResponsiveDrawerProps) {
           </nav>
           <main className={classes.content}>
             <div className={classes.toolbar} />
-            <Switch>
-                <Route path="/" exact component={TodayScreen} />
-                <Route path="/calendar" component={CalendarScreen} />
-                <Route path="/chart" exact component={ChartScreen} />
-                <Redirect path="*" to="/" />
-            </Switch>
+            <Router></Router>
           </main>
         </div>
       </BrowserRouter>
