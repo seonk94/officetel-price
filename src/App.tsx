@@ -3,7 +3,6 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import { Link } from "react-router-dom";
 import AppBar from '../node_modules/@material-ui/core/AppBar';
 import CssBaseline from '../node_modules/@material-ui/core/CssBaseline';
-import Divider from '../node_modules/@material-ui/core/Divider';
 import Drawer from '../node_modules/@material-ui/core/Drawer';
 import Hidden from '../node_modules/@material-ui/core/Hidden';
 import IconButton from '../node_modules/@material-ui/core/IconButton';
@@ -17,11 +16,12 @@ import Typography from '../node_modules/@material-ui/core/Typography';
 import { makeStyles, useTheme, Theme, createStyles } from '../node_modules/@material-ui/core/styles';
 import Router from './Router'
 import { BrowserRouter } from 'react-router-dom';
+import bannerLogo from './assets/logos/facebook_cover_photo_1.png'
 
 const colorTheme = createMuiTheme({
   palette: {
     primary: {
-      main: '#32323B'
+      main: '#393e46'
     },
     secondary: {
       main: '#56E7A5'
@@ -57,12 +57,17 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     toolbar: theme.mixins.toolbar,
     drawerPaper: {
+      background: '#393e46',
       width: drawerWidth,
     },
     content: {
       flexGrow: 1,
       padding: theme.spacing(3),
     },
+    logoImg: {
+      width: '100%',
+      height: '64px',
+    }
   }),
 );
 
@@ -85,8 +90,9 @@ export default function App(props: ResponsiveDrawerProps) {
 
   const drawer = (
     <div>
-      <div className={classes.toolbar} />
-      <Divider />
+      <div className={classes.toolbar}>
+        <img src={bannerLogo} alt='logo' className={classes.logoImg} />
+      </div>
       <List>
         {['/', '/chart', '/calendar'].map((text, index) => (
           <Link to={text}>
@@ -97,7 +103,6 @@ export default function App(props: ResponsiveDrawerProps) {
           </Link>
         ))}
       </List>
-      <Divider />
     </div>
   );
 
@@ -118,7 +123,7 @@ export default function App(props: ResponsiveDrawerProps) {
                 <HomeIcon />
               </IconButton>
               <Typography variant="h6" noWrap>
-                Responsive drawer
+                
               </Typography>
             </Toolbar>
           </AppBar>
