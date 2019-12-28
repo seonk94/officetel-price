@@ -8,7 +8,6 @@ import Hidden from "../node_modules/@material-ui/core/Hidden";
 import IconButton from "../node_modules/@material-ui/core/IconButton";
 import List from "../node_modules/@material-ui/core/List";
 import ListItem from "../node_modules/@material-ui/core/ListItem";
-import ListItemIcon from "../node_modules/@material-ui/core/ListItemIcon";
 import ListItemText from "../node_modules/@material-ui/core/ListItemText";
 import HomeIcon from "../node_modules/@material-ui/icons/Home";
 import Toolbar from "../node_modules/@material-ui/core/Toolbar";
@@ -46,7 +45,9 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up("sm")]: {
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth
-      }
+      },
+      background: "#eee",
+      borderBottom: "1px solid #495057"
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -61,11 +62,17 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     content: {
       flexGrow: 1,
-      padding: theme.spacing(3)
+      padding: theme.spacing(3),
+      background: "#eee",
+      height: "100vh"
     },
     logoImg: {
       width: "100%",
       height: "64px"
+    },
+    linkBtn: {
+      textDecoration: "none",
+      color: "#fff"
     }
   })
 );
@@ -87,17 +94,16 @@ export default function App(props: ResponsiveDrawerProps) {
     setMobileOpen(!mobileOpen);
   };
 
+  const routerList = [{ url: "/", text: "메인화면" }];
+
   const drawer = (
     <div>
-      <div className={classes.toolbar}>
-        <img src={bannerLogo} alt="logo" className={classes.logoImg} />
-      </div>
+      <div className={classes.toolbar}>{/* <img src={bannerLogo} alt="logo" className={classes.logoImg} /> */}</div>
       <List>
-        {["/"].map((text, index) => (
-          <Link to={text}>
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <HomeIcon />}</ListItemIcon>
-              <ListItemText primary={text}></ListItemText>
+        {routerList.map((list, index) => (
+          <Link to={list.url} className={classes.linkBtn}>
+            <ListItem button key={list.url}>
+              <ListItemText primary={list.text}></ListItemText>
             </ListItem>
           </Link>
         ))}
@@ -110,9 +116,9 @@ export default function App(props: ResponsiveDrawerProps) {
       <BrowserRouter>
         <div className={classes.root}>
           <CssBaseline />
-          <AppBar position="fixed" className={classes.appBar}>
+          <AppBar position="fixed" elevation={0} className={classes.appBar}>
             <Toolbar>
-              <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} className={classes.menuButton}>
+              <IconButton color="primary" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} className={classes.menuButton}>
                 <HomeIcon />
               </IconButton>
               <Typography variant="h6" noWrap></Typography>
