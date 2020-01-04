@@ -1,9 +1,6 @@
 import React from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import { getRTMSDataSvcOffiRent, areaCodeList, officetel_transaction_list, officetel_rental_rent_amount } from "../api/index";
 import RoundCard from "../Components/Card/RoundCard";
 
 interface MainScreenState {
@@ -48,7 +45,6 @@ export default class MainScreen extends React.Component<any, any> {
   // };
 
   render() {
-    const rental_rent_amount = officetel_rental_rent_amount();
     return (
       <div>
         <Grid container justify="center" spacing={3}>
@@ -70,33 +66,3 @@ export default class MainScreen extends React.Component<any, any> {
     );
   }
 }
-
-// export default function TodayScreen() {
-//   const classes = useStyles();
-
-//   const data = getRTMSDataSvcOffiRent({ LAWD_CD: 11100, DEAL_YMD: 201512 });
-
-//   data.then(res => {
-//     const a = res.request.response;
-//     const b = JSON.parse(a);
-//     console.log(b);
-//   });
-
-//   const firebaseList = officetel_transaction_list();
-
-//   // firebaseList;
-
-//   return (
-//     <div className={classes.root}>
-//       <Grid container justify="center" spacing={3}>
-//         <Grid item xs={12} md={6}>
-//           <Grid container spacing={3}>
-//             <Grid item xs={12}>
-//               <TextField />
-//             </Grid>
-//           </Grid>
-//         </Grid>
-//       </Grid>
-//     </div>
-//   );
-// }
