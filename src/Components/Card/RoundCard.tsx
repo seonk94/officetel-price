@@ -1,6 +1,6 @@
 import React from "react";
-import { Paper, Grid, Typography, Theme } from "@material-ui/core";
-import { makeStyles, createStyles, withStyles } from "@material-ui/styles";
+import { Paper, Grid, Theme } from "@material-ui/core";
+import { makeStyles, createStyles } from "@material-ui/styles";
 import _H5 from "../Typography/_H5";
 import _H3 from "../Typography/_H3";
 import Comparison from "./CardContents/Comparison";
@@ -22,8 +22,29 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+const comparisonContent = () => {
+  return <Comparison ComparisonData1="1234" ComparisonData2="4321" />;
+};
+
+const tableContent = () => {
+  return <div>table content</div>;
+};
+
 export default function RoundCard(props: RoundCardProps) {
   const classes = useStyles();
+
+  const type = props.type;
+
+  const renderContent = () => {
+    switch (type) {
+      case "comparison":
+        return comparisonContent();
+      case "table":
+        return tableContent();
+      default:
+        return comparisonContent();
+    }
+  };
 
   return (
     <Paper elevation={0}>
@@ -32,7 +53,7 @@ export default function RoundCard(props: RoundCardProps) {
           <_H3 text={props.title} />
         </Grid>
         <Grid item xs={12}>
-          <Comparison ComparisonData1="1241" ComparisonData2="4124" />
+          {renderContent()}
         </Grid>
       </Grid>
     </Paper>
