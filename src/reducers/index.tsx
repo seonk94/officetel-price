@@ -1,15 +1,17 @@
+import { enthusiasm } from "./Enthusiasm";
+import { summary } from "./summary";
+import { combineReducers } from 'redux';
+import { EnthusiasmState } from "../types/Enthusiasm";
+import { SummaryState } from "../types/summary";
 
-import { EnthusiasmAction } from '../actions';
-import { StoreState } from '../types/index';
-import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../constants/index';
-
-export function enthusiasm(state: StoreState, action: EnthusiasmAction): StoreState {
-  switch (action.type) {
-    case INCREMENT_ENTHUSIASM:
-      return { ...state, enthusiasmLevel: state.enthusiasmLevel + 1 };
-    case DECREMENT_ENTHUSIASM:
-      return { ...state, enthusiasmLevel: Math.max(1, state.enthusiasmLevel - 1) };
-    default:
-      return state;
-  }
+export interface StoreState {
+  enthusiasm: EnthusiasmState,
+  summary: SummaryState,
 }
+
+export default combineReducers<StoreState>({
+  enthusiasm: enthusiasm,
+  summary: summary
+})
+
+//https://deminoth.github.io/redux/basics/Reducers.html
