@@ -8,6 +8,7 @@ export function mapStateToProps({ summary }: StoreState) {
   return {
     longRentCount : summary.longRentCount,
     monthlyRentCount: summary.monthlyRentCount,
+    expensiveMonthlyRendTransaction: summary.expensiveMonthlyRendTransaction
   };
 }
 

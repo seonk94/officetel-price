@@ -9,23 +9,6 @@ export interface ListByAreaCode {
     sumDeposit : number;
 }
 
-export interface OfficetelTransaction {
-    area: number;
-    area_code: number;
-    building_year: number;
-    day: number;
-    deposit: number;
-    dong: string;
-    floor: number;
-    gu: string;
-    housing_complex: string;
-    month: number;
-    monthly_rent: number | string;
-    year: number;
-    zip_number: number;
-}
-
-
 export const areaCodeList: number[] = [
     11110, //종로구
     11140, //중구
