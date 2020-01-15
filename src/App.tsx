@@ -1,8 +1,8 @@
 import * as React from 'react';
-import './App.css';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import Hello from './containers/Hello';
+import Summary from './containers/Summary';
 
 const reactBody = css`
   margin: 0;
@@ -61,7 +61,7 @@ function App() {
         <a css={sidebarMenu}>About</a>
       </div>
       <div css={content}>
-        <Hello/>
+        <Summary/>
       </div>
     </div>
   );

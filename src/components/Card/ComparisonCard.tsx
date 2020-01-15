@@ -14,17 +14,18 @@ const body = css`
   text-align: center;
 `
 export interface Props {
+    title: string;
     data1 : string | number;
     key1: string;
     data2 : string | number;
     key2: string;
 }
 
-function ComparisonCard({ data1, key1, data2, key2 }: Props) {
+function ComparisonCard({ title, data1, key1, data2, key2 }: Props) {
 
   return (
     <Card css={card} variant="outlined">
-      <CardHeader title={'비교 카드'} css={header}/>
+      <CardHeader title={title} css={header}/>
       <CardContent css={body}>
         <Grid container spacing={2}>
           <Grid item xs={6}>
