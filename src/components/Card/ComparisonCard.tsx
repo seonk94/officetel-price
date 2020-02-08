@@ -5,10 +5,10 @@ import { jsx, css } from '@emotion/core';
 import { CardHeader, CardContent, Grid } from '@material-ui/core';
 
 const card = css`
-
+  height: 100%;
 `
 const header = css`
-  border-bottom: 1px solid #adb5bd;
+  // border-bottom: 1px solid #adb5bd;
 `
 const body = css`
   text-align: center;

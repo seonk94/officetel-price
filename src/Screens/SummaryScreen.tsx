@@ -12,20 +12,36 @@ export interface Props {
 function SummaryScreen({ longRentCount, monthlyRentCount, expensiveMonthlyRendTransaction}: Props) {
 
   return (
-    <Grid container>
-      <Grid item xs={4}>
-        <ComparisonCard 
-          title='전세 월세 비교' 
-          data1={longRentCount} 
-          data2={monthlyRentCount} 
-          key1='전세' 
-          key2='월세' />
+    <Grid container spacing={3}>
+      <Grid container spacing={3} item xs={12}>
+        <Grid item xs={12} sm={6} md={3}>
+          <ComparisonCard 
+            title='전세 월세 비교' 
+            data1={longRentCount} 
+            data2={monthlyRentCount} 
+            key1='전세' 
+            key2='월세' />
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
+          <OfficetelInfoCard
+            title='비싼 월세 데이터'
+            transaction={expensiveMonthlyRendTransaction}
+          />
+        </Grid>
       </Grid>
-      <Grid item xs={4}>
-        <OfficetelInfoCard
-          title='비싼 월세 거래 데이터'
-          transaction={expensiveMonthlyRendTransaction}
-        />
+      <Grid container spacing={3} item xs={12}>
+        <Grid item xs={12} sm={6} md={3}>
+          <OfficetelInfoCard
+            title='거래량 TOP 데이터'
+            transaction={expensiveMonthlyRendTransaction}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
+          <OfficetelInfoCard
+            title='비싼 전세 데이터'
+            transaction={expensiveMonthlyRendTransaction}
+          />
+        </Grid>
       </Grid>
     </Grid>
   );
