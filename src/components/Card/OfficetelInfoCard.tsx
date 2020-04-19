@@ -1,19 +1,8 @@
 import * as React from 'react';
 import Card from '@material-ui/core/Card';
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core';
 import { CardHeader, CardContent, Grid } from '@material-ui/core';
+import './OfficetelInfoCard.scss';
 
-const card = css`
-  height: 100%;
-`
-const header = css`
-  // border-bottom: 1px solid #adb5bd;
-`
-const body = css`
-  text-align: left;
-  line-height: 1;
-`
 export interface Props {
     title: string;
     transaction: OfficetelTransaction;
@@ -22,9 +11,9 @@ export interface Props {
 function OfficetelInfoCard({ transaction, title }: Props) {
 
   return (
-    <Card css={card} variant="outlined">
-      <CardHeader title={title} css={header}/>
-      <CardContent css={body}>
+    <Card className="officetel-info-card" variant="outlined">
+      <CardHeader title={title}/>
+      <CardContent className="body">
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <h3>{`${transaction.dong} ${transaction.dong} ${transaction.zip_string}`}</h3>

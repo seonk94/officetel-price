@@ -1,66 +1,17 @@
 import * as React from 'react';
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core';
-import Hello from './containers/Hello';
 import Summary from './containers/Summary';
-
-const reactBody = css`
-  margin: 0;
-`
-
-const sidebar = css`
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-
-  @media (max-width: 600px) {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-`
-
-const sidebarMenu = css`
-  display: block;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
-  &.active {
-    background-color: #4CAF50;
-    color: white;
-  }
-  &:hover:not(.active) {
-    background-color: #555;
-    color: white;
-  }
-  @media (max-width: 600px) {
-    float: left;
-  }
-`
-
-const content = css`
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
-  @media (max-width: 600px) {
-    margin-left: 0;
-  }
-`
+import './App.scss'
 
 function App() {
   return (
-    <div css={reactBody}>
-      <div css={sidebar}>
-        <a css={sidebarMenu}>Home</a>
-        <a css={sidebarMenu}>News</a>
-        <a css={sidebarMenu}>Contact</a>
-        <a css={sidebarMenu}>About</a>
+    <div>
+      <div className="sidebar">
+        <a className="sidebar-menu" href="/#">Home</a>
+        <a className="sidebar-menu" href="/#">News</a>
+        <a className="sidebar-menu" href="/#">Contact</a>
+        <a className="sidebar-menu" href="/#">About</a>
       </div>
-      <div css={content}>
+      <div className="main-content">
         <Summary/>
       </div>
     </div>
