@@ -1,8 +1,13 @@
 .officetel-info-card {
     height: 100%;
+    width: 400px;
 
     .body {
         text-align: left;
         line-height: 1;
+    }
+    
+    .footer {
+        float: right;
     }
 }
