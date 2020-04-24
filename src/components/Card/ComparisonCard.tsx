@@ -15,9 +15,11 @@ function ComparisonCard({ title, data1, key1, data2, key2 }: Props) {
 
   return (
     <Card className="comparison-card" variant="outlined">
-      <CardHeader title={title}/>
       <CardContent className="body">
         <Grid container spacing={2}>
+          <Grid item xs={12} className="title">
+              <h3>{title}</h3>
+            </Grid>
           <Grid item xs={6}>
             <h1>
               {data1}

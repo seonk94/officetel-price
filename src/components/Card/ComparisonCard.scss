@@ -1,7 +1,11 @@
 .comparison-card {
     height: 100%;
-    width: 400px;
+    width: 368px;
     .body{
         text-align: center;
+
+        .title {
+            text-align: left;
+        }
     }
 }
