@@ -24,7 +24,7 @@ function OfficetelInfoCard({ transaction, title }: Props) {
             <h3>{title}</h3>
           </Grid>
           <Grid item xs={12}>
-            <h4>{`${transaction.dong} ${transaction.dong} ${transaction.zip_string}`}</h4>
+            <h4>{`${transaction.dong} ${transaction.dong} ${transaction.zip_number}`}</h4>
             <h4>{`${transaction.housing_complex} ${transaction.floor} 층`}</h4>
           </Grid>
           <Grid item xs={6}>

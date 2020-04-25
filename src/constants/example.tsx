@@ -1,4 +1,4 @@
-export const transactions = [
+export const transactions : OfficetelTransaction[] = [
     {
         "building_year": 2004,
         "year": 2020,

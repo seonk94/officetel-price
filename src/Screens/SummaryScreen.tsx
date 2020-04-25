@@ -3,6 +3,8 @@ import { Grid } from '@material-ui/core';
 import ComparisonCard from '../components/Card/ComparisonCard';
 import OfficetelInfoCard from '../components/Card/OfficetelInfoCard';
 import SingleDataCard from '../components/Card/SingleDataCard';
+import BasicTable from '../components/Table/BasicTable';
+import { transactions } from '../constants/example';
 
 export interface Props {
     longRentCount : number,
@@ -11,7 +13,13 @@ export interface Props {
 }
 
 function SummaryScreen({ longRentCount, monthlyRentCount, expensiveMonthlyRendTransaction}: Props) {
-
+  const basicHeaders : { text: string, value: string }[] = [
+    { text: '시군구', value: 'gu' },
+    { text: '동', value: 'dong' },
+    { text: '이름', value: 'housing_complex' },
+    { text: '건축년도', value: 'building_year' },
+    { text: '보증금', value: 'deposit' },
+  ]
   return (
     <Grid container spacing={3} justify="center">
       <Grid item>
@@ -34,7 +42,7 @@ function SummaryScreen({ longRentCount, monthlyRentCount, expensiveMonthlyRendTr
       </Grid>
       <Grid item>
         <ComparisonCard 
-          title='전세 월세 비교' 
+          title='전세 월세 거래 량 비교' 
           data1={longRentCount} 
           data2={monthlyRentCount} 
           key1='전세' 
@@ -42,21 +50,27 @@ function SummaryScreen({ longRentCount, monthlyRentCount, expensiveMonthlyRendTr
       </Grid>
       <Grid item>
         <OfficetelInfoCard
-          title='비싼 월세 데이터'
+          title='비싼 월세 오피스텔'
           transaction={expensiveMonthlyRendTransaction}
         />
       </Grid>
       <Grid item>
         <OfficetelInfoCard
-          title='거래량 TOP 데이터'
+          title='비싼 전세 오피스텔'
           transaction={expensiveMonthlyRendTransaction}
         />
       </Grid>
       <Grid item>
         <OfficetelInfoCard
-          title='비싼 전세 데이터'
+          title='거래량 TOP 오피스텔'
           transaction={expensiveMonthlyRendTransaction}
         />
+      </Grid>
+      <Grid item>
+          <BasicTable
+            headers={basicHeaders}
+            datas={transactions}
+          ></BasicTable>
       </Grid>
     </Grid>
   );

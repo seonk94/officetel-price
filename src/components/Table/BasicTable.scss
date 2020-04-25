@@ -1,0 +1,14 @@
+.basic-table-card {
+    width: 762px;
+    // width: 368px;
+    height: 100%;
+
+    .table-container {
+        max-height: 300px;
+
+        .header-cell {
+            font-weight: 700;
+            font-size: 16px;
+        }
+    }
+}

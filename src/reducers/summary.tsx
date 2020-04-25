@@ -19,7 +19,7 @@ const initialState : SummaryState = {
       month: 12,
       monthly_rent: 0,
       year: 2015,
-      zip_string: '104-21',
+      zip_number: '104-21',
   }
 } 
 
