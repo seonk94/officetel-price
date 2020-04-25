@@ -25,22 +25,22 @@ function SummaryScreen({ longRentCount, monthlyRentCount, expensiveMonthlyRendTr
     <Grid container spacing={3} justify="center" className="main-container">
       <Grid container spacing={3} justify="center">
         <Grid item>
-          <SingleDataCard title='월세 거래 수' value='4,952'></SingleDataCard>
+          <SingleDataCard title='월세 거래 수' value='4,952' compareValue='-412'></SingleDataCard>
         </Grid>
         <Grid item>
-          <SingleDataCard title='전세 거래 수' value='2,132'></SingleDataCard>
+          <SingleDataCard title='전세 거래 수' value='2,132' compareValue='-219'></SingleDataCard>
         </Grid>
         <Grid item>
-          <SingleDataCard title='평균 월세' value='45.00'></SingleDataCard>
+          <SingleDataCard title='평균 월세' value='45.00' compareValue='+5'></SingleDataCard>
         </Grid>
         <Grid item>
-          <SingleDataCard title='평균 전세 보증금' value='10,000'></SingleDataCard>
+          <SingleDataCard title='평균 전세 보증금' value='10,000' compareValue='+500'></SingleDataCard>
         </Grid>
         <Grid item>
-          <SingleDataCard title='월세 평균 면적' value='23.19m²'></SingleDataCard>
+          <SingleDataCard title='월세 평균 면적' value='23.19m²' compareValue='+2.19m²'></SingleDataCard>
         </Grid>
         <Grid item>
-          <SingleDataCard title='평균 전세 면적' value='73.92m²'></SingleDataCard>
+          <SingleDataCard title='평균 전세 면적' value='73.92m²' compareValue='+5.32m²'></SingleDataCard>
         </Grid>
       </Grid>
       <Grid item>

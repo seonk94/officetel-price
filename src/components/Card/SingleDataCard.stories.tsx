@@ -7,7 +7,7 @@ export default {
 };
 
 export const singleDataCard = () => 
-    <SingleDataCard title='title' value='value'/>;
+    <SingleDataCard title='title' value='value' compareValue='-123'/>;
 
 singleDataCard.story = {
   name: 'Default'
