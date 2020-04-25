@@ -5,6 +5,7 @@ import OfficetelInfoCard from '../components/Card/OfficetelInfoCard';
 import SingleDataCard from '../components/Card/SingleDataCard';
 import BasicTable from '../components/Table/BasicTable';
 import { transactions } from '../constants/example';
+import './SummaryScreen.scss'
 
 export interface Props {
     longRentCount : number,
@@ -21,24 +22,26 @@ function SummaryScreen({ longRentCount, monthlyRentCount, expensiveMonthlyRendTr
     { text: '보증금', value: 'deposit' },
   ]
   return (
-    <Grid container spacing={3} justify="center">
-      <Grid item>
-        <SingleDataCard title='월세 거래 수' value='4,952'></SingleDataCard>
-      </Grid>
-      <Grid item>
-        <SingleDataCard title='전세 거래 수' value='2,132'></SingleDataCard>
-      </Grid>
-      <Grid item>
-        <SingleDataCard title='평균 월세' value='45.00'></SingleDataCard>
-      </Grid>
-      <Grid item>
-        <SingleDataCard title='평균 전세 보증금' value='10,000'></SingleDataCard>
-      </Grid>
-      <Grid item>
-        <SingleDataCard title='월세 평균 면적' value='23.19m²'></SingleDataCard>
-      </Grid>
-      <Grid item>
-        <SingleDataCard title='평균 전세 면적' value='73.92m²'></SingleDataCard>
+    <Grid container spacing={3} justify="center" className="main-container">
+      <Grid container spacing={3} justify="center">
+        <Grid item>
+          <SingleDataCard title='월세 거래 수' value='4,952'></SingleDataCard>
+        </Grid>
+        <Grid item>
+          <SingleDataCard title='전세 거래 수' value='2,132'></SingleDataCard>
+        </Grid>
+        <Grid item>
+          <SingleDataCard title='평균 월세' value='45.00'></SingleDataCard>
+        </Grid>
+        <Grid item>
+          <SingleDataCard title='평균 전세 보증금' value='10,000'></SingleDataCard>
+        </Grid>
+        <Grid item>
+          <SingleDataCard title='월세 평균 면적' value='23.19m²'></SingleDataCard>
+        </Grid>
+        <Grid item>
+          <SingleDataCard title='평균 전세 면적' value='73.92m²'></SingleDataCard>
+        </Grid>
       </Grid>
       <Grid item>
         <ComparisonCard 

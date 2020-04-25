@@ -27,7 +27,9 @@ function BasicTable({ headers, datas }: Props) {
                     </TableHead>
                     <TableBody>
                         {datas.map((data) => (
-                            <TableRow>
+                            <TableRow
+                                key={data.id}
+                            >
                                 {headers.map((header) => (
                                     <TableCell>
                                         {data[header.value]}
