@@ -3,14 +3,15 @@ import { TableContainer, TableHead, TableRow, TableCell, TableBody, Table, Card 
 import './BasicTable.scss';
 
 export interface Props {
+    spacingClass: 'basic-table-card-1' | 'basic-table-card-2' | 'basic-table-card-3';
     headers: { text: string , value: string }[];
     datas: any[];
 }
 
-function BasicTable({ headers, datas }: Props) {
+function BasicTable({ spacingClass, headers, datas }: Props) {
 
     return (
-        <Card className="basic-table-card" variant="outlined">
+        <Card className={spacingClass} variant="outlined">
             <TableContainer className="table-container">
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>

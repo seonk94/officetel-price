@@ -1,6 +1,33 @@
-.basic-table-card {
+.basic-table-card-1 {
+    width: 368px;
+    height: 100%;
+
+    .table-container {
+        max-height: 300px;
+
+        .header-cell {
+            font-weight: 700;
+            font-size: 16px;
+        }
+    }
+}
+
+.basic-table-card-2 {
     width: 762px;
-    // width: 368px;
+    height: 100%;
+
+    .table-container {
+        max-height: 300px;
+
+        .header-cell {
+            font-weight: 700;
+            font-size: 16px;
+        }
+    }
+}
+
+.basic-table-card-3 {
+    width: 1155px;
     height: 100%;
 
     .table-container {

@@ -4,7 +4,7 @@ import ComparisonCard from '../components/Card/ComparisonCard';
 import OfficetelInfoCard from '../components/Card/OfficetelInfoCard';
 import SingleDataCard from '../components/Card/SingleDataCard';
 import BasicTable from '../components/Table/BasicTable';
-import { transactions } from '../constants/example';
+import { transactions, transactionsByAreaCode } from '../constants/example';
 import './SummaryScreen.scss'
 
 export interface Props {
@@ -14,12 +14,17 @@ export interface Props {
 }
 
 function SummaryScreen({ longRentCount, monthlyRentCount, expensiveMonthlyRendTransaction}: Props) {
-  const basicHeaders : { text: string, value: string }[] = [
+  const transactionTableHeaders : { text: string, value: string }[] = [
     { text: '시군구', value: 'gu' },
     { text: '동', value: 'dong' },
     { text: '이름', value: 'housing_complex' },
     { text: '건축년도', value: 'building_year' },
     { text: '보증금', value: 'deposit' },
+  ]
+
+  const areaCodeTableHeaders : { text: string, value: string}[] = [
+    { text: '시군구', value: 'gu' },
+    { text: '거래수', value: 'value' },
   ]
   return (
     <Grid container spacing={3} justify="center" className="main-container">
@@ -44,14 +49,6 @@ function SummaryScreen({ longRentCount, monthlyRentCount, expensiveMonthlyRendTr
         </Grid>
       </Grid>
       <Grid item>
-        <ComparisonCard 
-          title='전세 월세 거래 량 비교' 
-          data1={longRentCount} 
-          data2={monthlyRentCount} 
-          key1='전세' 
-          key2='월세' />
-      </Grid>
-      <Grid item>
         <OfficetelInfoCard
           title='비싼 월세 오피스텔'
           transaction={expensiveMonthlyRendTransaction}
@@ -71,8 +68,16 @@ function SummaryScreen({ longRentCount, monthlyRentCount, expensiveMonthlyRendTr
       </Grid>
       <Grid item>
           <BasicTable
-            headers={basicHeaders}
+            spacingClass='basic-table-card-2'
+            headers={transactionTableHeaders}
             datas={transactions}
+          ></BasicTable>
+      </Grid>
+      <Grid item>
+          <BasicTable
+            spacingClass='basic-table-card-1'
+            headers={areaCodeTableHeaders}
+            datas={transactionsByAreaCode}
           ></BasicTable>
       </Grid>
     </Grid>

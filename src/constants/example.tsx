@@ -1,3 +1,31 @@
+export const transactionsByAreaCode : { gu: string, value: number }[] = [
+    { gu: '종로구', value: 513 },
+    { gu: '중구', value: 152 },
+    { gu: '용산구', value: 235 },
+    { gu: '성동구', value: 562 },
+    { gu: '광진구', value: 713 },
+    { gu: '동대문구', value: 912 },
+    { gu: '중랑구', value: 1043 },
+    { gu: '성북구', value: 132 },
+    { gu: '강북구', value: 242 },
+    { gu: '도봉구', value: 957 },
+    { gu: '노원구', value: 824 },
+    { gu: '은평구', value: 572 },
+    { gu: '서대문구', value: 431 },
+    { gu: '마포구', value: 723 },
+    { gu: '양천구', value: 601 },
+    { gu: '강서구', value: 94 },
+    { gu: '구로구', value: 2013 },
+    { gu: '금천구', value: 1643 },
+    { gu: '영등포구', value: 204 },
+    { gu: '동작구', value: 810 },
+    { gu: '관악구', value: 361 },
+    { gu: '서초구', value: 394 },
+    { gu: '강남구', value: 136 },
+    { gu: '송파구', value: 1402 },
+    { gu: '강동구', value: 1132 },
+]
+
 export const transactions : OfficetelTransaction[] = [
     {
         "building_year": 2004,
