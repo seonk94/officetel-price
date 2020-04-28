@@ -15,3 +15,9 @@ declare interface OfficetelTransaction {
     year: number;                   // 2015
     zip_number: string;             // 104-21
 }
+
+declare global {
+    interface Window {
+        kakao: any;
+    }
+}

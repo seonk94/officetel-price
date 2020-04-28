@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Grid } from '@material-ui/core';
-import ComparisonCard from '../components/Card/ComparisonCard';
 import OfficetelInfoCard from '../components/Card/OfficetelInfoCard';
 import SingleDataCard from '../components/Card/SingleDataCard';
 import BasicTable from '../components/Table/BasicTable';
 import { transactions, transactionsByAreaCode } from '../constants/example';
 import './SummaryScreen.scss'
+import BasicModal from '../components/Modal/BasicModal';
 
 export interface Props {
     longRentCount : number,
@@ -26,6 +26,7 @@ function SummaryScreen({ longRentCount, monthlyRentCount, expensiveMonthlyRendTr
     { text: '시군구', value: 'gu' },
     { text: '거래수', value: 'value' },
   ]
+
   return (
     <Grid container spacing={3} justify="center" className="main-container">
       <Grid container spacing={3} justify="center">
@@ -80,6 +81,7 @@ function SummaryScreen({ longRentCount, monthlyRentCount, expensiveMonthlyRendTr
             datas={transactionsByAreaCode}
           ></BasicTable>
       </Grid>
+      <BasicModal/>
     </Grid>
   );
 }

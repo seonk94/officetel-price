@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CardContent, Card, Icon } from '@material-ui/core';
+import { CardContent, Card } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import './SingleDataCard.scss';

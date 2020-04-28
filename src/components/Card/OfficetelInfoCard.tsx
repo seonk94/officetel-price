@@ -1,10 +1,9 @@
 import * as React from 'react';
 import Card from '@material-ui/core/Card';
-import { CardHeader, CardContent, Grid, CardActions, IconButton } from '@material-ui/core';
+import { CardContent, Grid, CardActions, IconButton } from '@material-ui/core';
 import MapIcon from '@material-ui/icons/Map';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import './OfficetelInfoCard.scss';
-import { spacing } from '@material-ui/system';
 
 export interface Props {
     title: string;
@@ -12,9 +11,9 @@ export interface Props {
 }
 
 function OfficetelInfoCard({ transaction, title }: Props) {
-  const getAcre = (area : number) => {
-    return area / 3.3
-  }
+  // const getAcre = (area : number) => {
+  //   return area / 3.3
+  // }
 
   return (
     <Card className="officetel-info-card" variant="outlined">
