@@ -7,6 +7,9 @@ import OfficetelInfoCard from '../Card/OfficetelInfoCard';
 import BasicTable from '../Table/BasicTable';
 import { transactions } from '../../constants/example';
 
+export interface Props {
+    show: boolean;
+}
 const tempData = {
     area: 63.81,
     area_code: '11100',
@@ -27,7 +30,7 @@ const tempHeaders : { text: string, value: string }[] = [
     { text: '거래일', value: 'day' },
     { text: '보증금', value: 'deposit' },
   ]
-function BasicModal() {
+function BasicModal({ show } : Props) {
 
     const { kakao } : any = window
 
@@ -48,7 +51,7 @@ function BasicModal() {
             className="basic-modal"
             aria-labelledby="modal-title"
             aria-describedby="modal-description"
-            open={true}
+            open={show}
         >
             <Card className="basic-modal-card">
                 <CardContent>

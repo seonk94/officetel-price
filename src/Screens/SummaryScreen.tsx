@@ -12,84 +12,100 @@ export interface Props {
     monthlyRentCount: number,
     expensiveMonthlyRendTransaction: OfficetelTransaction
 }
+interface State {
+  showModal: boolean;
+  transactionTableHeaders: {text: string, value: string}[];
+  areaCodeTableHeaders: {text: string, value: string}[];
+}
 
-function SummaryScreen({ longRentCount, monthlyRentCount, expensiveMonthlyRendTransaction}: Props) {
-  const transactionTableHeaders : { text: string, value: string }[] = [
-    { text: '시군구', value: 'gu' },
-    { text: '동', value: 'dong' },
-    { text: '이름', value: 'housing_complex' },
-    { text: '건축년도', value: 'building_year' },
-    { text: '보증금', value: 'deposit' },
-  ]
+class SummaryScreen extends React.Component<Props, State> {
+  constructor(props : Props) {
+    super(props);
+    this.state = {
+      showModal : false,
+      transactionTableHeaders : [
+        { text: '시군구', value: 'gu' },
+        { text: '동', value: 'dong' },
+        { text: '이름', value: 'housing_complex' },
+        { text: '건축년도', value: 'building_year' },
+        { text: '보증금', value: 'deposit' },
+      ],
+      areaCodeTableHeaders : [
+        { text: '시군구', value: 'gu' },
+        { text: '거래수', value: 'value' },
+      ]
+    }
 
-  const areaCodeTableHeaders : { text: string, value: string}[] = [
-    { text: '시군구', value: 'gu' },
-    { text: '거래수', value: 'value' },
-  ]
+    this.handleShowModal = this.handleShowModal.bind(this)
+  }
 
-  return (
-    <Grid container spacing={3} justify="center" className="main-container">
-      <Grid container spacing={3} justify="center">
-        <Grid item>
-          <SingleDataCard title='월세 거래 수' value='4,952' compareValue='-412'></SingleDataCard>
+  handleShowModal(value : boolean) {
+    this.setState(state => ({
+      showModal: value
+    }))
+  }
+
+  render() {
+    const { transactionTableHeaders, areaCodeTableHeaders, showModal } = this.state;
+    const { expensiveMonthlyRendTransaction } = this.props;
+    return (
+      <Grid container spacing={3} justify="center" className="main-container">
+        <Grid container spacing={3} justify="center">
+          <Grid item>
+            <SingleDataCard title='월세 거래 수' value='4,952' compareValue='-412'></SingleDataCard>
+          </Grid>
+          <Grid item>
+            <SingleDataCard title='전세 거래 수' value='2,132' compareValue='-219'></SingleDataCard>
+          </Grid>
+          <Grid item>
+            <SingleDataCard title='평균 월세' value='45.00' compareValue='+5'></SingleDataCard>
+          </Grid>
+          <Grid item>
+            <SingleDataCard title='평균 전세 보증금' value='10,000' compareValue='+500'></SingleDataCard>
+          </Grid>
+          <Grid item>
+            <SingleDataCard title='월세 평균 면적' value='23.19m²' compareValue='+2.19m²'></SingleDataCard>
+          </Grid>
+          <Grid item>
+            <SingleDataCard title='평균 전세 면적' value='73.92m²' compareValue='+5.32m²'></SingleDataCard>
+          </Grid>
         </Grid>
         <Grid item>
-          <SingleDataCard title='전세 거래 수' value='2,132' compareValue='-219'></SingleDataCard>
+          <OfficetelInfoCard
+            title='비싼 월세 오피스텔'
+            transaction={expensiveMonthlyRendTransaction}
+          />
         </Grid>
         <Grid item>
-          <SingleDataCard title='평균 월세' value='45.00' compareValue='+5'></SingleDataCard>
+          <OfficetelInfoCard
+            title='비싼 전세 오피스텔'
+            transaction={expensiveMonthlyRendTransaction}
+          />
         </Grid>
         <Grid item>
-          <SingleDataCard title='평균 전세 보증금' value='10,000' compareValue='+500'></SingleDataCard>
+          <OfficetelInfoCard
+            title='거래량 TOP 오피스텔'
+            transaction={expensiveMonthlyRendTransaction}
+          />
         </Grid>
         <Grid item>
-          <SingleDataCard title='월세 평균 면적' value='23.19m²' compareValue='+2.19m²'></SingleDataCard>
+            <BasicTable
+              spacingClass='basic-table-card-2'
+              headers={transactionTableHeaders}
+              datas={transactions}
+            ></BasicTable>
         </Grid>
         <Grid item>
-          <SingleDataCard title='평균 전세 면적' value='73.92m²' compareValue='+5.32m²'></SingleDataCard>
+            <BasicTable
+              spacingClass='basic-table-card-1'
+              headers={areaCodeTableHeaders}
+              datas={transactionsByAreaCode}
+            ></BasicTable>
         </Grid>
+        <BasicModal show={showModal}/>
       </Grid>
-      <Grid item>
-        <OfficetelInfoCard
-          title='비싼 월세 오피스텔'
-          transaction={expensiveMonthlyRendTransaction}
-        />
-      </Grid>
-      <Grid item>
-        <OfficetelInfoCard
-          title='비싼 전세 오피스텔'
-          transaction={expensiveMonthlyRendTransaction}
-        />
-      </Grid>
-      <Grid item>
-        <OfficetelInfoCard
-          title='거래량 TOP 오피스텔'
-          transaction={expensiveMonthlyRendTransaction}
-        />
-      </Grid>
-      <Grid item>
-          <BasicTable
-            spacingClass='basic-table-card-2'
-            headers={transactionTableHeaders}
-            datas={transactions}
-          ></BasicTable>
-      </Grid>
-      <Grid item>
-          <BasicTable
-            spacingClass='basic-table-card-1'
-            headers={areaCodeTableHeaders}
-            datas={transactionsByAreaCode}
-          ></BasicTable>
-      </Grid>
-      <BasicModal/>
-    </Grid>
-  );
+    )
+  }
 }
 
 export default SummaryScreen;
-
-// helpers
-
-// function getExclamationMarks(numChars: number) {
-//   return Array(numChars + 1).join('!');
-// }
