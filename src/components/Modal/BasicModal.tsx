@@ -9,6 +9,7 @@ import { transactions } from '../../constants/example';
 
 export interface Props {
     show: boolean;
+    handleShow: (value: boolean) => void;
 }
 const tempData = {
     area: 63.81,
@@ -30,9 +31,11 @@ const tempHeaders : { text: string, value: string }[] = [
     { text: '거래일', value: 'day' },
     { text: '보증금', value: 'deposit' },
   ]
-function BasicModal({ show } : Props) {
+function BasicModal({ show, handleShow } : Props) {
 
-    const { kakao } : any = window
+    const { kakao } : any = window;
+    const clickCloseButton = () => handleShow(false)
+    const emptyFunction = () => {}
 
     setTimeout(() => {
         kakao.maps.load(() => {
@@ -57,7 +60,7 @@ function BasicModal({ show } : Props) {
                 <CardContent>
                     <Grid container spacing={2} justify="center">
                         <Grid item xs={12} className="modal-title">
-                            <IconButton>
+                            <IconButton onClick={clickCloseButton}>
                                 <CloseIcon/>
                             </IconButton>
                         </Grid>
@@ -65,6 +68,7 @@ function BasicModal({ show } : Props) {
                             <OfficetelInfoCard
                                 title='선택한 오피스텔'
                                 transaction={tempData}
+                                handleShowModal={emptyFunction}
                             />
                         </Grid>
                         <Grid item>

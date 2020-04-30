@@ -8,12 +8,15 @@ import './OfficetelInfoCard.scss';
 export interface Props {
     title: string;
     transaction: OfficetelTransaction;
+    handleShowModal: (value: boolean) => void;
 }
 
-function OfficetelInfoCard({ transaction, title }: Props) {
+function OfficetelInfoCard({ transaction, title, handleShowModal }: Props) {
   // const getAcre = (area : number) => {
   //   return area / 3.3
   // }
+
+  const openModal = () => handleShowModal(true);
 
   return (
     <Card className="officetel-info-card" variant="outlined">
@@ -39,7 +42,7 @@ function OfficetelInfoCard({ transaction, title }: Props) {
         </Grid>
       </CardContent>
       <CardActions className="footer">
-        <IconButton>
+        <IconButton onClick={openModal}>
           <MoreHorizIcon/>
         </IconButton>
         <IconButton>

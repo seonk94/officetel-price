@@ -39,7 +39,7 @@ class SummaryScreen extends React.Component<Props, State> {
     this.handleShowModal = this.handleShowModal.bind(this)
   }
 
-  handleShowModal(value : boolean) {
+  handleShowModal = (value : boolean) => {
     this.setState(state => ({
       showModal: value
     }))
@@ -74,18 +74,21 @@ class SummaryScreen extends React.Component<Props, State> {
           <OfficetelInfoCard
             title='비싼 월세 오피스텔'
             transaction={expensiveMonthlyRendTransaction}
+            handleShowModal={this.handleShowModal}
           />
         </Grid>
         <Grid item>
           <OfficetelInfoCard
             title='비싼 전세 오피스텔'
             transaction={expensiveMonthlyRendTransaction}
+            handleShowModal={this.handleShowModal}
           />
         </Grid>
         <Grid item>
           <OfficetelInfoCard
             title='거래량 TOP 오피스텔'
             transaction={expensiveMonthlyRendTransaction}
+            handleShowModal={this.handleShowModal}
           />
         </Grid>
         <Grid item>
@@ -102,7 +105,9 @@ class SummaryScreen extends React.Component<Props, State> {
               datas={transactionsByAreaCode}
             ></BasicTable>
         </Grid>
-        <BasicModal show={showModal}/>
+        <BasicModal 
+          show={showModal}
+          handleShow={this.handleShowModal}/>
       </Grid>
     )
   }
