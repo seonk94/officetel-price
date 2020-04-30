@@ -88,6 +88,7 @@ function BasicModal({ show, handleShow }: Props) {
 
 
   setTimeout(() => {
+    console.log(kakao)
     kakao.maps.load(() => {
       const mapContainer = document.getElementById('kakaomap');
       const options = {
@@ -95,7 +96,24 @@ function BasicModal({ show, handleShow }: Props) {
         level: 3,
       }
 
-      new kakao.maps.Map(mapContainer, options);
+      const map = new kakao.maps.Map(mapContainer, options);
+
+      const geocoder = new kakao.maps.services.Geocoder();
+      geocoder.addressSearch('홍지동104-21', (res: any, status: any) => {
+        if (status === kakao.maps.services.Status.OK) {
+          const coords = new kakao.maps.LatLng(res[0].y, res[0].x);
+
+          // 참고 https://webkimsora.tistory.com/60
+          // const marker = new kakao.maps.Marker({
+          //   map,
+          //   position: coords
+          // })
+
+          map.setCenter(coords);
+        } else {
+          console.log('에러임')
+        }
+      })
     })
   }, 500)
 

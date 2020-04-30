@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, Tooltip } from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
 export interface Props {
   dataKeys: string[];
@@ -14,7 +14,7 @@ function BasicLineChart({ dataKeys, data }: Props) {
       <Tooltip />
       {/* <Legend /> */}
       {dataKeys.map((key) => (
-        <Line type="monotone" dataKey={key} stroke="#8884d8"></Line>
+        <Line key={key} type="monotone" dataKey={key} stroke="#8884d8"></Line>
       ))}
     </LineChart>
   )
