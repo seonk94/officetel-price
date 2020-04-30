@@ -4,11 +4,11 @@ import { CardHeader, CardContent, Grid } from '@material-ui/core';
 import './ComparisonCard.scss';
 
 export interface Props {
-    title: string;
-    data1 : string | number;
-    key1: string;
-    data2 : string | number;
-    key2: string;
+  title: string;
+  data1: string | number;
+  key1: string;
+  data2: string | number;
+  key2: string;
 }
 
 function ComparisonCard({ title, data1, key1, data2, key2 }: Props) {
@@ -18,8 +18,8 @@ function ComparisonCard({ title, data1, key1, data2, key2 }: Props) {
       <CardContent className="body">
         <Grid container spacing={2}>
           <Grid item xs={12} className="title">
-              <h3>{title}</h3>
-            </Grid>
+            <h3>{title}</h3>
+          </Grid>
           <Grid item xs={6}>
             <h1>
               {data1}

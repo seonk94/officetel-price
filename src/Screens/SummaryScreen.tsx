@@ -48,6 +48,9 @@ class SummaryScreen extends React.Component<Props, State> {
   render() {
     const { transactionTableHeaders, areaCodeTableHeaders, showModal } = this.state;
     const { expensiveMonthlyRendTransaction } = this.props;
+
+    
+      
     return (
       <Grid container spacing={3} justify="center" className="main-container">
         <Grid container spacing={3} justify="center">
