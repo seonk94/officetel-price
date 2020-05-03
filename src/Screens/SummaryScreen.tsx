@@ -24,10 +24,21 @@ interface State {
 class SummaryScreen extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
+
+    const today = new Date();
+
+    let currentYear = today.getFullYear();
+    let previousMonth = today.getMonth();
+
+    if (previousMonth === 1) {
+      previousMonth = 12;
+      currentYear = currentYear - 1
+    }
+
     this.state = {
       showModal: false,
-      month: 1,
-      year: 2020,
+      month: previousMonth,
+      year: currentYear,
       transactionTableHeaders: [
         { text: '시군구', value: 'gu' },
         { text: '동', value: 'dong' },
