@@ -1,3 +1,9 @@
 .main-container {
-    margin: 0px !important
+  max-width: 1200px;
+  margin: auto !important;
+
+  .select-container {
+    padding: 12px 24px;
+  }
+
 }
