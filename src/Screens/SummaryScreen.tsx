@@ -17,6 +17,7 @@ interface State {
   showModal: boolean;
   month: number;
   year: number;
+  areaCode: number;
   transactionTableHeaders: { text: string, value: string }[];
   areaCodeTableHeaders: { text: string, value: string }[];
 }
@@ -39,6 +40,7 @@ class SummaryScreen extends React.Component<Props, State> {
       showModal: false,
       month: previousMonth,
       year: currentYear,
+      areaCode: 11110,
       transactionTableHeaders: [
         { text: '시군구', value: 'gu' },
         { text: '동', value: 'dong' },
@@ -74,32 +76,66 @@ class SummaryScreen extends React.Component<Props, State> {
     })
   }
 
+  handleAreaCodeChange = (e: React.ChangeEvent<{ value: unknown }>) => {
+    this.setState({
+      areaCode: e.target.value as number
+    })
+  }
+
   render() {
-    const { transactionTableHeaders, areaCodeTableHeaders, showModal, month, year } = this.state;
+    const { transactionTableHeaders, areaCodeTableHeaders, showModal, month, year, areaCode } = this.state;
     const { expensiveMonthlyRendTransaction } = this.props;
 
-    const monthList: { key: string, value: number }[] = [
-      { key: '1월', value: 1 },
-      { key: '2월', value: 2 },
-      { key: '3월', value: 3 },
-      { key: '4월', value: 4 },
-      { key: '5월', value: 5 },
-      { key: '6월', value: 6 },
-      { key: '7월', value: 7 },
-      { key: '8월', value: 8 },
-      { key: '9월', value: 9 },
-      { key: '10월', value: 10 },
-      { key: '11월', value: 11 },
-      { key: '12월', value: 12 },
+    const monthList: { text: string, value: number }[] = [
+      { text: '1월', value: 1 },
+      { text: '2월', value: 2 },
+      { text: '3월', value: 3 },
+      { text: '4월', value: 4 },
+      { text: '5월', value: 5 },
+      { text: '6월', value: 6 },
+      { text: '7월', value: 7 },
+      { text: '8월', value: 8 },
+      { text: '9월', value: 9 },
+      { text: '10월', value: 10 },
+      { text: '11월', value: 11 },
+      { text: '12월', value: 12 },
     ]
 
-    const yearList: { key: string, value: number }[] = [
-      { key: '2015년', value: 2015 },
-      { key: '2016년', value: 2016 },
-      { key: '2017년', value: 2017 },
-      { key: '2018년', value: 2018 },
-      { key: '2019년', value: 2019 },
-      { key: '2020년', value: 2020 },
+    const yearList: { text: string, value: number }[] = [
+      { text: '2015년', value: 2015 },
+      { text: '2016년', value: 2016 },
+      { text: '2017년', value: 2017 },
+      { text: '2018년', value: 2018 },
+      { text: '2019년', value: 2019 },
+      { text: '2020년', value: 2020 },
+    ]
+
+    const guList: { text: string, value: number }[] = [
+      { text: '종로구', value: 11110 },
+      { text: '중구', value: 11140 },
+      { text: '용산구', value: 11170 },
+      { text: '성동구', value: 11200 },
+      { text: '광진구', value: 11215 },
+      { text: '동대문구', value: 11230 },
+      { text: '중랑구', value: 11260 },
+      { text: '성북구', value: 11290 },
+      { text: '강북구', value: 11305 },
+      { text: '도봉구', value: 11320 },
+      { text: '노원구', value: 11350 },
+      { text: '은평구', value: 11380 },
+      { text: '서대문구', value: 11410 },
+      { text: '마포구', value: 11440 },
+      { text: '양천구', value: 11470 },
+      { text: '강서구', value: 11500 },
+      { text: '구로구', value: 11530 },
+      { text: '금천구', value: 11545 },
+      { text: '영등포구', value: 11560 },
+      { text: '동작구', value: 11590 },
+      { text: '관악구', value: 11620 },
+      { text: '서초구', value: 11650 },
+      { text: '강남구', value: 11680 },
+      { text: '송파구', value: 11710 },
+      { text: '강동구', value: 11740 },
     ]
 
     return (
@@ -119,6 +155,14 @@ class SummaryScreen extends React.Component<Props, State> {
               items={monthList}
               selectLabel="Month"
               handleSelectChange={this.handleMonthChange}
+            />
+          </Grid>
+          <Grid item>
+            <SelectForm
+              value={areaCode}
+              items={guList}
+              selectLabel="시군구"
+              handleSelectChange={this.handleAreaCodeChange}
             />
           </Grid>
         </Grid>

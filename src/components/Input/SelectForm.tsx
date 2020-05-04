@@ -5,7 +5,7 @@ import './SelectForm.scss'
 interface Props {
   value: string | number;
   selectLabel: string;
-  items: { key: string, value: string | number }[];
+  items: { text: string, value: string | number }[];
   handleSelectChange: (e: React.ChangeEvent<{ value: unknown }>) => void;
 }
 function SelectForm({ value, items, handleSelectChange, selectLabel }: Props) {
@@ -18,7 +18,7 @@ function SelectForm({ value, items, handleSelectChange, selectLabel }: Props) {
         onChange={handleSelectChange}
       >
         {items.map((item) => (
-          <MenuItem value={item.value}>{item.key}</MenuItem>
+          <MenuItem value={item.value}>{item.text}</MenuItem>
         ))}
       </Select>
     </FormControl>
