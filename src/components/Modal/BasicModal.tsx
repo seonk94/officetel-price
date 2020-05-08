@@ -158,6 +158,7 @@ function BasicModal({ show, handleShow }: Props) {
                 spacingClass='basic-table-card-1'
                 headers={tempHeaders}
                 datas={transactions}
+                usePage={false}
               ></BasicTable>
             </Grid>
             <Grid item>

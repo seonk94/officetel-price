@@ -18,6 +18,9 @@ function SummaryScreen({ expensiveMonthlyRendTransaction }: Props) {
   const [month, setMonth] = React.useState(1)
   const [year, setYear] = React.useState(2020)
   const [areaCode, setAreaCode] = React.useState(11110)
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
   const transactionTableHeaders = [
     { text: '시군구', value: 'gu' },
     { text: '동', value: 'dong' },
@@ -157,6 +160,11 @@ function SummaryScreen({ expensiveMonthlyRendTransaction }: Props) {
           spacingClass='basic-table-card-2'
           headers={transactionTableHeaders}
           datas={transactions}
+          usePage={true}
+          page={page}
+          rowsPerPage={rowsPerPage}
+          setPage={setPage}
+          setRowsPerPage={setRowsPerPage}
         ></BasicTable>
       </Grid>
       <Grid item>
@@ -164,6 +172,7 @@ function SummaryScreen({ expensiveMonthlyRendTransaction }: Props) {
           spacingClass='basic-table-card-1'
           headers={areaCodeTableHeaders}
           datas={transactionsByAreaCode}
+          usePage={false}
         ></BasicTable>
       </Grid>
       <BasicModal
