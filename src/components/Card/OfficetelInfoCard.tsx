@@ -4,11 +4,12 @@ import { CardContent, Grid, CardActions, IconButton } from '@material-ui/core';
 import MapIcon from '@material-ui/icons/Map';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import './OfficetelInfoCard.scss';
+import OfficeInfoPaper from '../Paper/OfficeInfoPaper';
 
 export interface Props {
-    title: string;
-    transaction: OfficetelTransaction;
-    handleShowModal: (value: boolean) => void;
+  title: string;
+  transaction: OfficetelTransaction;
+  handleShowModal: (value: boolean) => void;
 }
 
 function OfficetelInfoCard({ transaction, title, handleShowModal }: Props) {
@@ -25,7 +26,8 @@ function OfficetelInfoCard({ transaction, title, handleShowModal }: Props) {
           <Grid item xs={12}>
             <h3>{title}</h3>
           </Grid>
-          <Grid item xs={12}>
+          <OfficeInfoPaper transaction={transaction} />
+          {/* <Grid item xs={12}>
             <h4>{`${transaction.dong} ${transaction.dong} ${transaction.zip_number}`}</h4>
             <h4>{`${transaction.housing_complex} ${transaction.floor} 층`}</h4>
           </Grid>
@@ -33,20 +35,17 @@ function OfficetelInfoCard({ transaction, title, handleShowModal }: Props) {
             <h5>{`시/군/구 : ${transaction.gu}`}</h5>
             <h5>{`건축년도 : ${transaction.building_year}`}</h5>
             <h5>{`거래일 : ${transaction.year}.${transaction.month}.${transaction.day}`}</h5>
-            </Grid>
-            <Grid item xs={6}>
+          </Grid>
+          <Grid item xs={6}>
             <h5>{`면적 : ${transaction.area}`}</h5>
             <h5>{`보증금 : ${transaction.deposit}`}</h5>
             <h5>{`월세 : ${transaction.monthly_rent}`}</h5>
-          </Grid>
+          </Grid> */}
         </Grid>
       </CardContent>
       <CardActions className="footer">
         <IconButton onClick={openModal}>
-          <MoreHorizIcon/>
-        </IconButton>
-        <IconButton>
-          <MapIcon/>
+          <MoreHorizIcon />
         </IconButton>
       </CardActions>
     </Card>

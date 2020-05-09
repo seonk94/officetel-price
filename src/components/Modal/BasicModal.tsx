@@ -8,6 +8,7 @@ import BasicTable from '../Table/BasicTable';
 import { transactions } from '../../constants/example';
 import BasicSingleLineChart from '../Chart/BasicLineChart';
 import ChartCard from '../Card/ChartCard';
+import OfficeInfoPaper from '../Paper/OfficeInfoPaper';
 
 
 export interface Props {
@@ -133,11 +134,18 @@ function BasicModal({ show, handleShow }: Props) {
               </IconButton>
             </Grid>
             <Grid item>
-              <OfficetelInfoCard
+              <Card className="transaction-card" variant={"outlined"}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <OfficeInfoPaper transaction={tempData} />
+                  </Grid>
+                </Grid>
+              </Card>
+              {/* <OfficetelInfoCard
                 title='선택한 오피스텔'
                 transaction={tempData}
                 handleShowModal={emptyFunction}
-              />
+              /> */}
             </Grid>
             <Grid item>
               <ChartCard

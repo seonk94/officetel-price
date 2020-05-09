@@ -1,20 +1,24 @@
 .basic-modal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    .basic-modal-card {
-        max-width: 800px;
+  .basic-modal-card {
+    max-width: 800px;
 
-        .modal-title {
-            text-align: right;
-        }
-    
-        .kakao-map-card {
-            width: 368px;
-            height: 300px;
-        }
-
+    .modal-title {
+      text-align: right;
     }
-    
+
+    .kakao-map-card {
+      width: 368px;
+      height: 300px;
+    }
+
+    .transaction-card {
+      height: 100%;
+      width: 368px;
+    }
+  }
+
 }
