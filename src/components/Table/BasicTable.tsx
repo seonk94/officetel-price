@@ -10,21 +10,21 @@ export interface Props {
   usePage: boolean;
   page?: number;
   rowsPerPage?: number;
-  setPage?: any;
-  setRowsPerPage?: any;
+  setPage?: React.Dispatch<React.SetStateAction<number>>;
+  setRowsPerPage?: React.Dispatch<React.SetStateAction<number>>;
 }
 
 function BasicTable({ spacingClass, headers, datas, usePage, page, rowsPerPage, setPage, setRowsPerPage }: Props) {
 
   const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
-    setPage(newPage);
+    setPage!(newPage);
   };
 
   const handleChangeRowsPerPage = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
+    setRowsPerPage!(parseInt(event.target.value, 10));
+    setPage!(0);
   };
 
   return (
