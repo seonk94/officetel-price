@@ -141,11 +141,6 @@ function BasicModal({ show, handleShow }: Props) {
                   </Grid>
                 </Grid>
               </Card>
-              {/* <OfficetelInfoCard
-                title='선택한 오피스텔'
-                transaction={tempData}
-                handleShowModal={emptyFunction}
-              /> */}
             </Grid>
             <Grid item>
               <ChartCard
@@ -164,6 +159,7 @@ function BasicModal({ show, handleShow }: Props) {
             <Grid item>
               <BasicTable
                 spacingClass='basic-table-card-1'
+                handleClickRow={undefined}
                 headers={tempHeaders}
                 datas={transactions}
                 usePage={false}

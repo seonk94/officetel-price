@@ -157,6 +157,7 @@ function SummaryScreen({ expensiveMonthlyRendTransaction }: Props) {
       </Grid>
       <Grid item>
         <BasicTable
+          handleClickRow={setShowModal}
           spacingClass='basic-table-card-2'
           headers={transactionTableHeaders}
           datas={transactions}
@@ -169,6 +170,7 @@ function SummaryScreen({ expensiveMonthlyRendTransaction }: Props) {
       </Grid>
       <Grid item>
         <BasicTable
+          handleClickRow={undefined}
           spacingClass='basic-table-card-1'
           headers={areaCodeTableHeaders}
           datas={transactionsByAreaCode}

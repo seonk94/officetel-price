@@ -8,13 +8,14 @@ export interface Props {
   headers: { text: string, value: string }[];
   datas: any[];
   usePage: boolean;
+  handleClickRow: any | undefined;
   page?: number;
   rowsPerPage?: number;
   setPage?: React.Dispatch<React.SetStateAction<number>>;
   setRowsPerPage?: React.Dispatch<React.SetStateAction<number>>;
 }
 
-function BasicTable({ spacingClass, headers, datas, usePage, page, rowsPerPage, setPage, setRowsPerPage }: Props) {
+function BasicTable({ spacingClass, headers, datas, usePage, handleClickRow, page, rowsPerPage, setPage, setRowsPerPage }: Props) {
 
   const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
     setPage!(newPage);
@@ -29,7 +30,7 @@ function BasicTable({ spacingClass, headers, datas, usePage, page, rowsPerPage, 
 
   return (
     <Card className={spacingClass} variant="outlined">
-      <TableContainer className="table-container">
+      <TableContainer className="basic-table-container">
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
@@ -46,7 +47,9 @@ function BasicTable({ spacingClass, headers, datas, usePage, page, rowsPerPage, 
           <TableBody>
             {datas.map((data) => (
               <TableRow
+                className={`body-row ${handleClickRow ? 'clickable' : ''}`}
                 key={data.id}
+                onClick={handleClickRow}
               >
                 {headers.map((header, index) => (
                   <TableCell key={index}>
