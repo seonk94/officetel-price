@@ -7,6 +7,7 @@ import { transactions, transactionsByAreaCode } from '../constants/example';
 import './SummaryScreen.scss'
 import BasicModal from '../components/Modal/BasicModal';
 import SelectForm from '../components/Input/SelectForm';
+import RankOfficetelCard from '../components/Card/RankOfficetelCard';
 
 export interface Props {
   expensiveMonthlyRendTransaction: OfficetelTransaction
@@ -135,11 +136,12 @@ function SummaryScreen({ expensiveMonthlyRendTransaction }: Props) {
         </Grid>
       </Grid>
       <Grid item>
-        <OfficetelInfoCard
+        {/* <OfficetelInfoCard
           title='비싼 월세 오피스텔'
           transaction={expensiveMonthlyRendTransaction}
           handleShowModal={setShowModal}
-        />
+        /> */}
+        <RankOfficetelCard handleShowModal={setShowModal} title='비싼 월세 오피스텔' transactions={[expensiveMonthlyRendTransaction, expensiveMonthlyRendTransaction, expensiveMonthlyRendTransaction]} />
       </Grid>
       <Grid item>
         <OfficetelInfoCard
