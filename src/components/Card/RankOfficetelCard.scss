@@ -5,6 +5,19 @@
   .rank-list {
     .rank-list-item {
       height: 60px;
+
+      .secondary-div {
+        display: inline-block;
+        width: 100%;
+
+        .secondary-right {
+          float: right;
+        }
+
+        .secondary-left {
+          float: left;
+        }
+      }
     }
   }
 }

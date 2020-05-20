@@ -24,7 +24,14 @@ function RankOfficetelCard({ title, transactions, handleShowModal }: Props) {
                 <ListItem button className="rank-list-item" onClick={openModal}>
                   <ListItemText
                     primary={`${transaction.dong} ${transaction.dong} ${transaction.zip_number}`}
-                    secondary={`${transaction.housing_complex} ${transaction.floor} 층`}
+                    secondary={
+                      <React.Fragment>
+                        <div className="secondary-div">
+                          <span className="secondary-left">{`${transaction.housing_complex} ${transaction.floor} 층`}</span>
+                          <span className="secondary-right">{`${transaction.monthly_rent}원`}</span>
+                        </div>
+                      </React.Fragment>
+                    }
                   />
                 </ListItem>
               ))}
