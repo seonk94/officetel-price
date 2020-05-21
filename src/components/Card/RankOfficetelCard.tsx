@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Card, CardContent, Grid, List, ListItem, ListItemText } from '@material-ui/core';
 import './RankOfficetelCard.scss'
+import OfficeInfoTooltip from '../Tooltip/OfficeInfoTooltip';
 
 export interface Props {
   title: string;
@@ -21,29 +22,29 @@ function RankOfficetelCard({ title, transactions, handleShowModal }: Props) {
           <Grid item xs={12}>
             <List className="rank-list">
               {transactions.map(transaction => (
-                <ListItem button className="rank-list-item" onClick={openModal}>
-                  <ListItemText
-                    primary={`${transaction.dong} ${transaction.dong} ${transaction.zip_number}`}
-                    secondary={
-                      <React.Fragment>
-                        <div className="secondary-div">
-                          <span className="secondary-left">{`${transaction.housing_complex} ${transaction.floor} 층`}</span>
-                          <span className="secondary-right">{`${transaction.monthly_rent}원`}</span>
-                        </div>
-                      </React.Fragment>
-                    }
-                  />
-                </ListItem>
+                <OfficeInfoTooltip
+                  transaction={transaction}
+                  showComponent={
+                    <ListItem button className="rank-list-item" onClick={openModal}>
+                      <ListItemText
+                        primary={`${transaction.dong} ${transaction.zip_number}`}
+                        secondary={
+                          <React.Fragment>
+                            <div className="secondary-div">
+                              <span className="secondary-left">{`${transaction.housing_complex} ${transaction.floor} 층`}</span>
+                              <span className="secondary-right">{`${transaction.monthly_rent}원`}</span>
+                            </div>
+                          </React.Fragment>
+                        }
+                      />
+                    </ListItem>
+                  }
+                />
               ))}
             </List>
           </Grid>
         </Grid>
       </CardContent>
-      {/* <CardActions className="footer">
-        <IconButton onClick={openModal}>
-          <MoreHorizIcon />
-        </IconButton>
-      </CardActions> */}
     </Card>
   )
 }
