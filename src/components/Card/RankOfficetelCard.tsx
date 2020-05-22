@@ -7,8 +7,11 @@ export interface Props {
   title: string;
   transactions: OfficetelTransaction[];
   handleShowModal: (value: boolean) => void;
+  showOption: boolean;
+  optionText: string;
+  optionItem: (transaction: OfficetelTransaction) => string | number;
 }
-function RankOfficetelCard({ title, transactions, handleShowModal }: Props) {
+function RankOfficetelCard({ title, transactions, handleShowModal, showOption, optionText, optionItem }: Props) {
 
   const openModal = () => handleShowModal(true);
 
@@ -32,7 +35,11 @@ function RankOfficetelCard({ title, transactions, handleShowModal }: Props) {
                           <React.Fragment>
                             <div className="secondary-div">
                               <span className="secondary-left">{`${transaction.housing_complex} ${transaction.floor} 층`}</span>
-                              <span className="secondary-right">{`${transaction.monthly_rent}원`}</span>
+                              {
+                                showOption
+                                  ? <span className="secondary-right">{`${optionText} ${optionItem(transaction)}`}</span>
+                                  : undefined
+                              }
                             </div>
                           </React.Fragment>
                         }

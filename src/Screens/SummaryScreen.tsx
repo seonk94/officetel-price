@@ -141,20 +141,43 @@ function SummaryScreen({ expensiveMonthlyRendTransaction }: Props) {
           transaction={expensiveMonthlyRendTransaction}
           handleShowModal={setShowModal}
         /> */}
-        <RankOfficetelCard handleShowModal={setShowModal} title='비싼 월세 오피스텔' transactions={[expensiveMonthlyRendTransaction, expensiveMonthlyRendTransaction, expensiveMonthlyRendTransaction]} />
-      </Grid>
-      <Grid item>
-        <OfficetelInfoCard
-          title='비싼 전세 오피스텔'
-          transaction={expensiveMonthlyRendTransaction}
+        <RankOfficetelCard
           handleShowModal={setShowModal}
+          title='비싼 월세 오피스텔'
+          transactions={[expensiveMonthlyRendTransaction, expensiveMonthlyRendTransaction, expensiveMonthlyRendTransaction]}
+          showOption={true}
+          optionText='월세'
+          optionItem={(transaction: OfficetelTransaction) => transaction.monthly_rent}
         />
       </Grid>
       <Grid item>
-        <OfficetelInfoCard
+        {/* <OfficetelInfoCard
+          title='비싼 전세 오피스텔'
+          transaction={expensiveMonthlyRendTransaction}
+          handleShowModal={setShowModal}
+        /> */}
+        <RankOfficetelCard
+          handleShowModal={setShowModal}
+          title='비싼 전세 오피스텔'
+          transactions={[expensiveMonthlyRendTransaction, expensiveMonthlyRendTransaction, expensiveMonthlyRendTransaction]}
+          showOption={true}
+          optionText='전세'
+          optionItem={(transaction: OfficetelTransaction) => transaction.deposit}
+        />
+      </Grid>
+      <Grid item>
+        {/* <OfficetelInfoCard
           title='거래량 TOP 오피스텔'
           transaction={expensiveMonthlyRendTransaction}
           handleShowModal={setShowModal}
+        /> */}
+        <RankOfficetelCard
+          handleShowModal={setShowModal}
+          title='거래량 많은'
+          transactions={[expensiveMonthlyRendTransaction, expensiveMonthlyRendTransaction, expensiveMonthlyRendTransaction]}
+          showOption={false}
+          optionText='전세'
+          optionItem={(transaction: OfficetelTransaction) => transaction.deposit}
         />
       </Grid>
       <Grid item>
