@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { TableContainer, TableHead, TableRow, TableCell, TableBody, Table, Card, TableFooter, TablePagination } from '@material-ui/core';
+import { TableContainer, TableHead, TableCell, TableBody, Table, Card, TableRow, TablePagination, } from '@material-ui/core';
 import './BasicTable.scss';
-import TablePaginationActions from './TablePaginationActions';
 
 export interface Props {
   spacingClass: 'basic-table-card-1' | 'basic-table-card-2' | 'basic-table-card-3';

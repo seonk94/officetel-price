@@ -3,7 +3,6 @@ import Card from '@material-ui/core/Card';
 import './BasicModal.scss'
 import { Modal, CardContent, Grid, IconButton } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import OfficetelInfoCard from '../Card/OfficetelInfoCard';
 import BasicTable from '../Table/BasicTable';
 import { transactions } from '../../constants/example';
 import BasicSingleLineChart from '../Chart/BasicLineChart';
@@ -39,7 +38,6 @@ function BasicModal({ show, handleShow }: Props) {
 
   const { kakao }: any = window;
   const clickCloseButton = () => handleShow(false)
-  const emptyFunction = () => { }
 
   const dataKeys: string[] = ['pv', 'uv', 'amt']
   const data = [

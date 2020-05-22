@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Card from '@material-ui/core/Card';
 import { CardContent, Grid, CardActions, IconButton } from '@material-ui/core';
-import MapIcon from '@material-ui/icons/Map';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import './OfficetelInfoCard.scss';
 import OfficeInfoPaper from '../Paper/OfficeInfoPaper';
