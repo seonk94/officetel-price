@@ -8,6 +8,7 @@ import { transactions } from '../../constants/example';
 import BasicSingleLineChart from '../Chart/BasicLineChart';
 import ChartCard from '../Card/ChartCard';
 import OfficeInfoPaper from '../Paper/OfficeInfoPaper';
+import BasicScatterChart from '../Chart/BasicScatterChart';
 
 
 export interface Props {
@@ -149,19 +150,14 @@ function BasicModal({ show, handleShow }: Props) {
                   />
                 }
               />
-              {/* <BasicSingleLineChart 
-                                dataKeys={dataKeys}
-                                data={data}
-                            /> */}
             </Grid>
             <Grid item>
-              <BasicTable
-                spacingClass='basic-table-card-1'
-                handleClickRow={undefined}
-                headers={tempHeaders}
-                datas={transactions}
-                usePage={false}
-              ></BasicTable>
+              <ChartCard
+                children={
+                  <BasicScatterChart
+                  />
+                }
+              />
             </Grid>
             <Grid item>
               <div id="kakaomap" className="kakao-map-card"></div>

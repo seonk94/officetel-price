@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {
-  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, LabelList,
+  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, LabelList, ZAxis,
 } from 'recharts';
 import moment from 'moment';
 
@@ -27,10 +27,12 @@ function BasicScatterChart() {
         name="Date"
         domain={[1577804400, 1590937200]}
         tickFormatter={(unixTime) => moment(unixTime * 1000).format('YYYY-MM')} />
-      <YAxis type="number" dataKey="y" name="weight" unit="만원" />
-      <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+      <YAxis type="number" dataKey="y" name="보증금" unit="만원" />
+      <ZAxis type="number" dataKey="z" range={[100, 400]} name="거래수" unit="회" />
+      <Tooltip
+        cursor={{ strokeDasharray: '3 3' }}
+        formatter={(value, name) => name === 'Date' ? moment(Number(value) * 1000).format('YYYY-MM') : value} />
       <Scatter name="A school" data={data} fill="#8884d8">
-        <LabelList dataKey="z" />
       </Scatter>
     </ScatterChart>
   );
