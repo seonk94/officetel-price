@@ -2,19 +2,17 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 interface NameFieldProps {
-    name: string;
-    setName: React.Dispatch<React.SetStateAction<string>>;
-    searchName: () => Promise<void>;
+  name: string;
+  setName: React.Dispatch<React.SetStateAction<string>>;
+  searchName: () => Promise<void>;
 }
 
 const NameBox = styled.div`
     display: flex;
     padding: 0 10px;
-    margin-top: 25vh;
-    margin-right: auto;
-    margin-left: auto;
+    margin: auto;
     align-items: center;
-    
+
     border: 1px solid black;
     border-radius: 4px;
     width: 30%;
@@ -42,20 +40,20 @@ const NameBox = styled.div`
 `
 
 function NameField({ name, setName, searchName }: NameFieldProps) {
-    const handleKeyPress = (e : React.KeyboardEvent) => {
-        if (e.key === 'Enter') {
-            searchName()
-        }
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      searchName()
     }
-    return (
-        <NameBox>
-            <input 
-                onChange={({ target: { value } }) => setName(value)}
-                onKeyPress={handleKeyPress}
-                />
-            <i className="fas fa-search" onClick={searchName}></i>
-        </NameBox>
-    )
+  }
+  return (
+    <NameBox>
+      <input
+        onChange={({ target: { value } }) => setName(value)}
+        onKeyPress={handleKeyPress}
+      />
+      <i className="fas fa-search" onClick={searchName}></i>
+    </NameBox>
+  )
 }
 
 export default NameField;
