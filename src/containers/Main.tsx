@@ -3,15 +3,15 @@ import NameField from '../components/NameField';
 import styled from 'styled-components';
 import { agify, genderize, nationalize } from '../api';
 import { IAgify, IGenderize, INationalize } from '../types/api';
-import Loader from '../components/Loader';
 import ResultForm from '../components/ResultForm';
 import { LoadingStatus } from '../types';
+import Footer from '../components/Footer';
 
 const MainSection = styled.section`
     width: 100%;
     height: 100vh;
     display: grid;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 1fr 1fr 48px;
 `
 function Main() {
 
@@ -50,6 +50,7 @@ function Main() {
         nation={nation}
         loadingStatus={loadingStatus}
       />
+      <Footer />
     </MainSection>
   )
 }
