@@ -11,7 +11,7 @@ const MainSection = styled.section`
     width: 100%;
     height: 100vh;
     display: grid;
-    grid-template-rows: 40% 60%;
+    grid-template-rows: 50% 50%;
 `
 function Main() {
 
