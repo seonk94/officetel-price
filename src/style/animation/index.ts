@@ -167,3 +167,25 @@ export const BounseBottomReturn = keyframes`
     transform: translateY(0%);
   }
 `
+
+export const Seraching = keyframes`
+  0% {
+    transform: translate(-20%, 20%);
+  }
+
+  25% {
+    transform: translate(-20%, -33%);
+  }
+
+  50% {
+    transform: translate(37%, -18%);
+  }
+
+  75% {
+    transform: translate(19%, 28%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+`

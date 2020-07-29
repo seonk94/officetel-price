@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
 import { IAgify, IGenderize, INationalize } from '../../types/api';
 import { LoadingStatus } from '../../types';
-import Loader from '../Loader';
 import styled from 'styled-components';
-import { BounseLeftReturn, BounceRightReturn, BounseBottomReturn } from '../../style/easing';
-
+import { BounseLeftReturn, BounceRightReturn, BounseBottomReturn } from '../../style/animation';
+import BookLoader from '../BookLoader';
 interface ResultFormProps {
   age?: IAgify;
   gender?: IGenderize;
@@ -32,7 +31,7 @@ function ResultForm({ age, gender, nation, loadingStatus }: ResultFormProps) {
 
   return (
     <FormContainer>
-      {loadingStatus === 'searching' ? <Loader /> : undefined}
+      {loadingStatus === 'searching' ? <BookLoader /> : undefined}
       {
         loadingStatus === 'searched'
           ? <Fragment>
