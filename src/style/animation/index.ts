@@ -168,6 +168,15 @@ export const BounseBottomReturn = keyframes`
   }
 `
 
+export const RightSlideReturn = keyframes`
+  0% {
+    transform: translateX(200%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+`
+
 export const Seraching = keyframes`
   0% {
     transform: translate(-20%, 20%);
