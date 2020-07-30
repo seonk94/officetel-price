@@ -6,8 +6,16 @@ import { createStore } from 'redux';
 import { enthusiasm } from './reducers/index';
 import { StoreState } from './types/index';
 
-import './index.css';
-import Main from './containers/Main';
+import App from './App';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+  }
+`
 
 const store = createStore<StoreState, any, any, any>(enthusiasm as any, {
   enthusiasmLevel: 1,
@@ -16,7 +24,8 @@ const store = createStore<StoreState, any, any, any>(enthusiasm as any, {
 
 ReactDOM.render(
   <Provider store={store}>
-    <Main />
+    <GlobalStyle />
+    <App />
   </Provider>,
   document.getElementById('root') as HTMLElement
 );
