@@ -12,44 +12,38 @@ interface NameBoxProps {
   render: boolean;
 }
 
+const NameAfterBeforeCss = css`
+  content: '';
+  box-sizing: inherit;
+  position: absolute;
+  border: 2px solid transparent;
+  width: 0;
+  height: 0;
+  z-index: 1;
+`
+
 const NameBox = styled.div<NameBoxProps>`
     display: flex;
     padding: 0 10px;
     margin: auto;
     align-items: center;
-    color: #ddd;
     position: relative;
     background: transparent;
     width: 30%;
+    min-width: 300px;
     height: fit-content;
 
     &:after {
-      content: '';
-      box-sizing: inherit;
-      position: absolute;
-      border: 2px solid transparent;
-      width: 0;
-      height: 0;
+      ${NameAfterBeforeCss}
       bottom: -2px;
       right: -2px;
-      z-index: 1;
     }
 
     &:before {
-      content: '';
-      border-top-color: #ddd;
-      border-right-color: #ddd;
-      box-sizing: inherit;
-      content: '';
-      position: absolute;
-      border: 2px solid transparent;
-      width: 0;
-      height: 0;
+      ${NameAfterBeforeCss}
       top: -2px;
       left: -2px;
-      z-index: 1;
     }
-
 
     ${(props: NameBoxProps) => props.render && BorderTransition}
 
@@ -77,24 +71,25 @@ const NameBox = styled.div<NameBoxProps>`
     }
 `
 
-const BorderTransition = css`
+const BorderTransitionCommonCss = css`
+  height: 100% !important;
+  width: 100% !important;
+`
 
+const BorderTransition = css`
     color: #000;
     &:before {
-      height: 100% !important;
-      width: 100% !important;
+      ${BorderTransitionCommonCss}
       border-top-color: #000;
       border-right-color: #000;
       transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
     }
     &:after {
-      height: 100% !important;
-      width: 100% !important;
+      ${BorderTransitionCommonCss}
       border-bottom-color: #000;
       border-left-color: #000;
       transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
     }
-
 `
 
 function NameField({ name, setName, searchName }: NameFieldProps) {
