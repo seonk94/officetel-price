@@ -4,14 +4,23 @@ import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import './index.scss'
 import App from './App';
+import { createGlobalStyle } from 'styled-components';
 import combineReducers from './reducers';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+  }
+`
 
 const store = createStore(combineReducers)
 
 ReactDOM.render(
   <Provider store={store}>
+    <GlobalStyle />
     <App />
   </Provider>,
   document.getElementById('root') as HTMLElement

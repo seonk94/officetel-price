@@ -1,4 +1,6 @@
-export interface EnthusiasmState {
-    languageName: string;
-    enthusiasmLevel: number;
+export interface StoreState {
+  languageName: string;
+  enthusiasmLevel: number;
 }
+
+export type LoadingStatus = 'searching' | 'waiting' | 'searched'

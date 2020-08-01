@@ -1,19 +1,11 @@
-import * as React from 'react';
-import Summary from './containers/Summary';
-import './App.scss'
+import React from 'react';
+import Main from './containers/Main';
+
 
 function App() {
   return (
     <div>
-      <div className="sidebar">
-        <a className="sidebar-menu" href="/#">Home</a>
-        <a className="sidebar-menu" href="/#">지역별</a>
-        <a className="sidebar-menu" href="/#">월별</a>
-        <a className="sidebar-menu" href="/#">리포트</a>
-      </div>
-      <div className="main-content">
-        <Summary/>
-      </div>
+      <Main />
     </div>
   );
 }
