@@ -48,12 +48,13 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-docs": "^5.2.8",
-    "@storybook/preset-create-react-app": "^1.5.0",
     "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.2.8",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
-    "@storybook/react": "^5.3.19"
+    "@storybook/preset-create-react-app": "^1.5.0",
+    "@storybook/react": "^5.3.19",
+    "cypress": "^4.11.0"
   },
   "prettier": {
     "printWidth": 150,
