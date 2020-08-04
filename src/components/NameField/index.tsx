@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { RightSlideReturn } from '../../style/animation';
+import PageTitle from '../PageTitle';
 
 interface NameFieldProps {
   name: string;
@@ -105,13 +106,16 @@ function NameField({ name, setName, searchName }: NameFieldProps) {
   }, [])
 
   return (
-    <NameBox render={render}>
-      <input
-        onChange={({ target: { value } }) => setName(value)}
-        onKeyPress={handleKeyPress}
-      />
-      <i className="fas fa-search" onClick={searchName}></i>
-    </NameBox>
+    <div>
+      <PageTitle />
+      <NameBox render={render}>
+        <input
+          onChange={({ target: { value } }) => setName(value)}
+          onKeyPress={handleKeyPress}
+        />
+        <i className="fas fa-search" onClick={searchName}></i>
+      </NameBox>
+    </div>
   )
 }
 

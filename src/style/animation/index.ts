@@ -198,3 +198,24 @@ export const Seraching = keyframes`
     transform: translate(0, 0);
   }
 `
+
+export const StrokeOffset = keyframes`
+  0% {
+    stroke-dasharray: 0 250;
+    stroke-opacity: 0
+  },
+  100% {
+    stroke-dasharray: 250 250;
+    stroke-opacity: 1
+  }
+`
+
+export const FillOffset = keyframes`
+  0%,
+  50% {
+    fill-opacity: 0
+  },
+  100% {
+    fill-opacity: 1
+  }
+`
