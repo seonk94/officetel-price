@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import NameField from '../components/NameField';
 import styled from 'styled-components';
 import { agify, genderize, nationalize } from '../api';
 import { IAgify, IGenderize, INationalize } from '../types/api';
 import ResultForm from '../components/ResultForm';
 import { LoadingStatus } from '../types';
 import Footer from '../components/Footer';
+import InputNameTemplate from '../template/InputNameTemplate';
 
 const MainSection = styled.section`
     width: 100%;
@@ -40,8 +40,7 @@ function Main() {
   }
   return (
     <MainSection>
-      <NameField
-        name={name}
+      <InputNameTemplate
         setName={setName}
         searchName={getNameInfo} />
       <ResultForm

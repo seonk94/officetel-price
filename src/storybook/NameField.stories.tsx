@@ -7,7 +7,6 @@ export default {
 }
 
 export const nameFieldStory = () => <NameField
-  name='name'
   setName={() => { }}
   searchName={async () => { }}
 />

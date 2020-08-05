@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { RightSlideReturn } from '../../style/animation';
-import PageTitle from '../PageTitle';
 
 interface NameFieldProps {
-  name: string;
   setName: React.Dispatch<React.SetStateAction<string>>;
   searchName: () => Promise<void>;
 }
@@ -93,7 +91,7 @@ const BorderTransition = css`
     }
 `
 
-function NameField({ name, setName, searchName }: NameFieldProps) {
+function NameField({ setName, searchName }: NameFieldProps) {
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       searchName()
@@ -106,16 +104,13 @@ function NameField({ name, setName, searchName }: NameFieldProps) {
   }, [])
 
   return (
-    <div>
-      <PageTitle />
-      <NameBox render={render}>
-        <input
-          onChange={({ target: { value } }) => setName(value)}
-          onKeyPress={handleKeyPress}
-        />
-        <i className="fas fa-search" onClick={searchName}></i>
-      </NameBox>
-    </div>
+    <NameBox render={render}>
+      <input
+        onChange={({ target: { value } }) => setName(value)}
+        onKeyPress={handleKeyPress}
+      />
+      <i className="fas fa-search" onClick={searchName}></i>
+    </NameBox>
   )
 }
 
