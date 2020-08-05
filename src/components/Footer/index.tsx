@@ -10,6 +10,7 @@ const FooterDiv = styled.div`
   padding: 0px 12px;
   color: #fff;
   font-weight: 700;
+  font-family: 'Work Sans', sans-serif;
 `
 
 const BubaDiv = styled.div`

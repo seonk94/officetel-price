@@ -20,7 +20,6 @@ const TitleSvg = styled.svg<{ render: boolean }>`
 
   text {
     font-size: 36px;
-    font-family: 'Indie Flower', cursive;
   }
 
   .fill {
