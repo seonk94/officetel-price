@@ -1,6 +1,7 @@
 import React from 'react';
 import PageTitle from '../components/PageTitle';
 import NameField from '../components/NameField';
+import NameInputField from '../components/NameInputField';
 
 interface InputNameTemplateProps {
   setName: React.Dispatch<React.SetStateAction<string>>;
@@ -13,6 +14,7 @@ function InputNameTemplate({ setName, searchName }: InputNameTemplateProps) {
     <div>
       <PageTitle />
       <NameField setName={setName} searchName={searchName} />
+      {/* <NameInputField setName={setName} searchName={searchName} /> */}
     </div>
   )
 }

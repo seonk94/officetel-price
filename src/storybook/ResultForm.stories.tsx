@@ -7,11 +7,14 @@ export default {
 }
 
 export const searchedResultFormStory = () => <ResultForm
+  name='Hong'
   loadingStatus={'searched'}
 />
 export const searchingResultFormStory = () => <ResultForm
+  name='Hong'
   loadingStatus={'searching'}
 />
 export const waitingResultFormStory = () => <ResultForm
+  name='Hong'
   loadingStatus={'waiting'}
 />

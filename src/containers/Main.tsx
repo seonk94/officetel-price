@@ -44,6 +44,7 @@ function Main() {
         setName={setName}
         searchName={getNameInfo} />
       <ResultForm
+        name={name}
         age={age}
         gender={gender}
         nation={nation}
