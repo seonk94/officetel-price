@@ -1,5 +1,5 @@
 import React from 'react';
-import BookLoader from '../components/BookLoader';
+import BookLoader from '@/src/components/BookLoader';
 
 export default {
   title: 'components',

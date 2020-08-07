@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FooterColor } from '../../constants/Colors';
+import { FooterColor } from '@/src/constants/Colors';
 
 const FooterDiv = styled.div`
   display: grid;

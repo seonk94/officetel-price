@@ -1,5 +1,5 @@
 import React from 'react';
-import Main from './screens/MainScreen';
+import Main from '@/src/screens/MainScreen';
 
 
 function App() {

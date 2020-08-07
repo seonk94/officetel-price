@@ -1,7 +1,7 @@
 import React from 'react';
-import BookIcon from '../../assets/icon/SimpleBook.svg'
+import BookIcon from '@/src/assets/icon/SimpleBook.svg'
 import styled from 'styled-components';
-import { Seraching } from '../../style/animation';
+import { Seraching } from '@/src/style/animation';
 
 const BookLoaderContainer = styled.div`
   position: relative;

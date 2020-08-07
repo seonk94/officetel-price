@@ -1,6 +1,6 @@
 import React from 'react';
-import PageTitle from '../components/PageTitle';
-import NameInputField from '../components/NameInputField';
+import PageTitle from '@/src/components/PageTitle';
+import NameInputField from '@/src/components/NameInputField';
 
 interface InputNameTemplateProps {
   setName: React.Dispatch<React.SetStateAction<string>>;

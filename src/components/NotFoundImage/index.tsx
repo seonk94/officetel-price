@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import IWillFoundYou from '../../assets/images/i_will_find_you.jpg'
+import IWillFoundYou from '@/src/assets/images/i_will_find_you.jpg'
 
 const StyledImage = styled.img`
   max-width: 640px;

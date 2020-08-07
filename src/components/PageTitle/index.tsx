@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
-import { FillOffset, StrokeOffset } from '../../style/animation';
+import { FillOffset, StrokeOffset } from '@/src/style/animation';
 
 const TitleDiv = styled.div`
   height: 200px;

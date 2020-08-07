@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { agify, genderize, nationalize } from '../api';
-import { IAgify, IGenderize, INationalize } from '../types/api';
-import ResultForm from '../components/ResultForm';
-import { LoadingStatus } from '../types';
-import Footer from '../components/Footer';
-import InputNameTemplate from '../template/InputNameTemplate';
+import { agify, genderize, nationalize } from '@/src/api';
+import { IAgify, IGenderize, INationalize } from '@/src/types/api';
+import ResultForm from '@/src/components/ResultForm';
+import { LoadingStatus } from '@/src/types';
+import Footer from '@/src/components/Footer';
+import InputNameTemplate from '@/src/template/InputNameTemplate';
 
 const MainSection = styled.section`
     width: 100%;

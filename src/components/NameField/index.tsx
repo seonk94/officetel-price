@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { RightSlideReturn } from '../../style/animation';
+import { RightSlideReturn } from '@/src/style/animation';
 
 interface NameFieldProps {
   setName: React.Dispatch<React.SetStateAction<string>>;

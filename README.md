@@ -49,3 +49,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### 참고 SITE
 
 [animation easing function](https://easings.net/ko)
+
+[react cra 절대경로 셋팅](https://www.npmjs.com/package/@craco/craco)

@@ -1,5 +1,5 @@
 import React from 'react';
-import NotFoundImage from '../components/NotFoundImage';
+import NotFoundImage from '@/src/components/NotFoundImage';
 
 export default {
   title: 'components',

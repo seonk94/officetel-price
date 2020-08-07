@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import { IAgify, IGenderize, INationalize } from '../../types/api';
-import { LoadingStatus } from '../../types';
+import { IAgify, IGenderize, INationalize } from '@/src/types/api';
+import { LoadingStatus } from '@/src/types';
 import styled from 'styled-components';
-import { BounseLeftReturn, BounceRightReturn, BounseBottomReturn } from '../../style/animation';
-import BookLoader from '../BookLoader';
-import NotFoundImage from '../NotFoundImage';
+import { BounseLeftReturn, BounceRightReturn, BounseBottomReturn } from '@/src/style/animation';
+import BookLoader from '@/src/components/BookLoader';
+import NotFoundImage from '@/src/components/NotFoundImage';
 interface ResultFormProps {
   age?: IAgify;
   gender?: IGenderize;

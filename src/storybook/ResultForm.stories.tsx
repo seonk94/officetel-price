@@ -1,5 +1,5 @@
 import React from 'react';
-import ResultForm from '../components/ResultForm'
+import ResultForm from '@/src/components/ResultForm'
 
 export default {
   title: 'components|ResultForm',

@@ -1,5 +1,5 @@
 import React from 'react';
-import NameField from '../components/NameField';
+import NameField from '@/src/components/NameField';
 
 export default {
   title: 'components',
