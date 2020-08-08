@@ -24,7 +24,12 @@
     "baseUrl": "./",
     "jsx": "react",
     "typeRoots": [
-      "./types"
+      "./types",
+      "node_modules/@types"
+    ],
+    "types": [
+      "jest",
+      "node"
     ]
   },
   "include": [
