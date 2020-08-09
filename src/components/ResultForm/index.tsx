@@ -3,8 +3,8 @@ import { IAgify, IGenderize, INationalize } from '@/src/types/api';
 import { LoadingStatus } from '@/src/types';
 import styled from 'styled-components';
 import { BounseLeftReturn, BounceRightReturn, BounseBottomReturn } from '@/src/style/animation';
-import BookLoader from '@/src/components/BookLoader';
 import NotFoundImage from '@/src/components/NotFoundImage';
+import AlphaGoImage from '../AlphaGoImage';
 interface ResultFormProps {
   age?: IAgify;
   gender?: IGenderize;
@@ -37,7 +37,7 @@ function ResultForm({ name, age, gender, nation, loadingStatus }: ResultFormProp
   const validData = validAge && validGender && validNation
   return (
     <FormContainer>
-      {loadingStatus === 'searching' ? <BookLoader /> : undefined}
+      {loadingStatus === 'searching' && <AlphaGoImage />}
       {
         loadingStatus === 'searched'
           ? validData
