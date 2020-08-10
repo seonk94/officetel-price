@@ -28,15 +28,22 @@ const NameFieldBox = styled.div`
 `
 
 const NameInput = styled.div`
+  display: flex;
+  align-items: center;
   border-bottom: 2px solid #000;
   input {
     border: none;
     font-size: 32px;
+    width: 30vh;
 
     &:focus {
       outline: none;
     }
   }
+`
+
+const IAmSpan = styled.span`
+  min-width: 60px;
 `
 
 function NameInputField({ setName, searchName }: InputNameProps) {
@@ -49,9 +56,9 @@ function NameInputField({ setName, searchName }: InputNameProps) {
 
   return (
     <NameFieldBox>
-      <span>
+      <IAmSpan>
         I AM
-      </span>
+      </IAmSpan>
       <NameInput>
         <input
           onChange={({ target: { value } }) => setName(value)}
