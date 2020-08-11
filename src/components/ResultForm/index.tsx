@@ -18,6 +18,7 @@ const FormContainer = styled.div`
 `
 const FormRow = styled.div`
   display: flex;
+  align-items: center;
 `
 const AgeRow = styled(FormRow)`
   animation: ${BounseLeftReturn} 1s ease alternate 1;
