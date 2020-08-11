@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Work Sans', sans-serif;
   }
 `
 

@@ -8,6 +8,7 @@ const TitleDiv = styled.div`
 const TitleSvg = styled.svg<{ render: boolean }>`
   width: 100%;
   height: 100%;
+  font-family: 'Indie Flower', cursive;
 
   .stroke {
     stroke: #000;
