@@ -28,7 +28,7 @@ function BookLoader() {
 
   return (
     <BookLoaderContainer>
-      <BookImg src={BookIcon} />
+      <BookImg src={BookIcon} alt='Book Image'/>
       <SearchIconContainer>
         <span className="material-icons">
           search
