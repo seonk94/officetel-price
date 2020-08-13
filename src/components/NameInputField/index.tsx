@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import { useTheme } from '@/src/hooks/useTheme';
 
 interface InputNameProps {
   setName: React.Dispatch<React.SetStateAction<string>>;
@@ -19,6 +20,7 @@ const NameFieldBox = styled.div`
   i {
     font-size: 26px;
     z-index: 2;
+    color: ${props => props.theme.colors.mainTextColor};
 
     &:hover {
         cursor : pointer;
@@ -30,11 +32,12 @@ const NameFieldBox = styled.div`
 const NameInput = styled.div`
   display: flex;
   align-items: center;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid ${props => props.theme.colors.mainTextColor};
   input {
     border: none;
     font-size: 32px;
     width: 30vh;
+    color: ${props => props.theme.colors.mainTextColor};
 
     &:focus {
       outline: none;
@@ -44,9 +47,12 @@ const NameInput = styled.div`
 
 const IAmSpan = styled.span`
   min-width: 60px;
+  color: ${props => props.theme.colors.mainTextColor};
 `
 
 function NameInputField({ setName, searchName }: InputNameProps) {
+
+  const [theme, toggleTheme] = useTheme();
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
@@ -55,17 +61,19 @@ function NameInputField({ setName, searchName }: InputNameProps) {
   }
 
   return (
-    <NameFieldBox>
-      <IAmSpan>
-        I AM
-      </IAmSpan>
-      <NameInput>
-        <input
-          onChange={({ target: { value } }) => setName(value)}
-          onKeyPress={handleKeyPress} />
-        <i className="fas fa-search" onClick={searchName}></i>
-      </NameInput>
-    </NameFieldBox>
+    <ThemeProvider theme={theme}>
+      <NameFieldBox>
+        <IAmSpan>
+          I AM
+        </IAmSpan>
+        <NameInput>
+          <input
+            onChange={({ target: { value } }) => setName(value)}
+            onKeyPress={handleKeyPress} />
+          <i className="fas fa-search" onClick={searchName}></i>
+        </NameInput>
+      </NameFieldBox>
+    </ThemeProvider>
   )
 }
 export default NameInputField;
