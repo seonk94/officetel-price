@@ -52,7 +52,7 @@ const IAmSpan = styled.span`
 
 function NameInputField({ setName, searchName }: InputNameProps) {
 
-  const [theme, toggleTheme] = useTheme();
+  const [theme] = useTheme();
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
