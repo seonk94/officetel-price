@@ -7,4 +7,6 @@ cache:
 install:
     - npm install
 script:
-  - npm test
+  - npm build
+after_success:
+  - firebase deploy --token $firebase_token
