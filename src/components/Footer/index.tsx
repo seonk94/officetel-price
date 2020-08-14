@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { useTheme } from '@/src/hooks/useTheme';
+import { ThemeDispatch } from '@/src/App';
 
 const FooterDiv = styled.div`
   display: grid;
@@ -27,21 +27,23 @@ const GithubAnchor = styled.a`
 
 function Footer() {
 
-  const [theme] = useTheme();
-
   return (
-    <ThemeProvider theme={theme}>
-      <FooterDiv>
-        <BubaDiv>
-          Buba ToyProject
-      </BubaDiv>
-        <GithubDiv>
-          <GithubAnchor href="https://github.com/seonk94/react" target="_blank">
-            Github
-        </GithubAnchor>
-        </GithubDiv>
-      </FooterDiv>
-    </ThemeProvider>
+    <ThemeDispatch.Consumer>
+      {(theme) => (
+        <ThemeProvider theme={theme}>
+          <FooterDiv>
+            <BubaDiv>
+              Buba ToyProject
+          </BubaDiv>
+            <GithubDiv>
+              <GithubAnchor href="https://github.com/seonk94/react" target="_blank">
+                Github
+            </GithubAnchor>
+            </GithubDiv>
+          </FooterDiv>
+        </ThemeProvider>
+      )}
+    </ThemeDispatch.Consumer>
   )
 }
 export default Footer

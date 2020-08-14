@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { useTheme } from '@/src/hooks/useTheme';
+import { ThemeDispatch } from '@/src/App';
 
 interface InputNameProps {
   setName: React.Dispatch<React.SetStateAction<string>>;
@@ -52,7 +52,6 @@ const IAmSpan = styled.span`
 
 function NameInputField({ setName, searchName }: InputNameProps) {
 
-  const [theme] = useTheme();
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
@@ -61,19 +60,23 @@ function NameInputField({ setName, searchName }: InputNameProps) {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <NameFieldBox>
-        <IAmSpan>
-          I AM
-        </IAmSpan>
-        <NameInput>
-          <input
-            onChange={({ target: { value } }) => setName(value)}
-            onKeyPress={handleKeyPress} />
-          <i className="fas fa-search" onClick={searchName}></i>
-        </NameInput>
-      </NameFieldBox>
-    </ThemeProvider>
+    <ThemeDispatch.Consumer>
+      {(theme) => (
+        <ThemeProvider theme={theme}>
+          <NameFieldBox>
+            <IAmSpan>
+              I AM
+            </IAmSpan>
+            <NameInput>
+              <input
+                onChange={({ target: { value } }) => setName(value)}
+                onKeyPress={handleKeyPress} />
+              <i className="fas fa-search" onClick={searchName}></i>
+            </NameInput>
+          </NameFieldBox>
+        </ThemeProvider>
+      )}
+    </ThemeDispatch.Consumer>
   )
 }
 export default NameInputField;

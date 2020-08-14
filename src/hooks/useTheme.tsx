@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { lightTheme, darkTheme } from '@/src/style/theme';
 import { ThemeMode } from '../types';
 
@@ -28,6 +28,7 @@ export const useTheme = () => {
 const getTheme = (mode: ThemeMode) => {
   switch (mode) {
     case 'dark': return darkTheme;
-    case 'light': return lightTheme
+    case 'light': return lightTheme;
+    default: return lightTheme;
   }
 }
