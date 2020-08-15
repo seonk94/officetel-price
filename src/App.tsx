@@ -3,18 +3,27 @@ import Main from '@/src/screens/MainScreen';
 import { useTheme } from './hooks/useTheme';
 import { lightTheme } from './style/theme';
 import { CustomTheme } from './types';
+import SettingButton from './components/SettingButton';
+import styled, { ThemeProvider } from 'styled-components';
 
 export const ThemeDispatch: React.Context<CustomTheme> = React.createContext(lightTheme);
 
+const RootChildDiv = styled.div`
+  background: ${props => props.theme.colors.mainBgColor};
+`
+
 function App() {
 
-  const [theme] = useTheme()
+  const [theme, toggleTheme] = useTheme()
 
   return (
     <ThemeDispatch.Provider value={theme as CustomTheme}>
-      <div>
-        <Main />
-      </div>
+      <ThemeProvider theme={theme}>
+        <RootChildDiv>
+          <Main />
+          <SettingButton toggleTheme={toggleTheme as () => void} />
+        </RootChildDiv>
+      </ThemeProvider>
     </ThemeDispatch.Provider>
   );
 }
