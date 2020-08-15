@@ -38,6 +38,7 @@ const NameInput = styled.div`
     font-size: 32px;
     width: 30vh;
     color: ${props => props.theme.colors.mainTextColor};
+    background: ${props => props.theme.colors.mainBgColor};
 
     &:focus {
       outline: none;
