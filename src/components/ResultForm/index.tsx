@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
 import { IAgify, IGenderize, INationalize } from '@/src/types/api';
 import { LoadingStatus } from '@/src/types';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { BounseLeftReturn, BounceRightReturn, BounseBottomReturn } from '@/src/style/animation';
 import NotFoundImage from '@/src/components/NotFoundImage';
 import AlphaGoImage from '../AlphaGoImage';
+import { ThemeDispatch } from '@/src/App';
 interface ResultFormProps {
   age?: IAgify;
   gender?: IGenderize;
@@ -22,13 +23,16 @@ const FormRow = styled.div`
 `
 const AgeRow = styled(FormRow)`
   animation: ${BounseLeftReturn} 1s ease alternate 1;
+  color: ${props => props.theme.colors.mainTextColor};
 `
 const GenderRow = styled(FormRow)`
   animation: ${BounceRightReturn} 1s ease alternate 1;
+  color: ${props => props.theme.colors.mainTextColor};
 `
 
 const CountryRow = styled(FormRow)`
   animation: ${BounseBottomReturn} 1s ease alternate 1;
+  color: ${props => props.theme.colors.mainTextColor};
 `
 function ResultForm({ name, age, gender, nation, loadingStatus }: ResultFormProps) {
 
@@ -37,29 +41,35 @@ function ResultForm({ name, age, gender, nation, loadingStatus }: ResultFormProp
   const validNation = nation && nation.country.length > 0;
   const validData = validAge && validGender && validNation
   return (
-    <FormContainer>
-      {loadingStatus === 'searching' && <AlphaGoImage />}
-      {
-        loadingStatus === 'searched'
-          ? validData
-            ? <Fragment>
-              <AgeRow>
-                <h3>나이 : </h3>
-                <h3>{age ? age.age : ''}</h3>
-              </AgeRow>
-              <GenderRow>
-                <h3>성별 : </h3>
-                <h3>{gender ? gender.gender : ''}</h3>
-              </GenderRow>
-              <CountryRow>
-                <h3>국가 : </h3>
-                <h3>{nation ? nation.country.map(c => c.country_id).join(' or ') : ''}</h3>
-              </CountryRow>
-            </Fragment>
-            : <NotFoundImage name={name} />
-          : undefined
-      }
-    </FormContainer>
+    <ThemeDispatch.Consumer>
+      {(theme) => (
+        <ThemeProvider theme={theme}>
+          <FormContainer>
+            {loadingStatus === 'searching' && <AlphaGoImage />}
+            {
+              loadingStatus === 'searched'
+                ? validData
+                  ? <Fragment>
+                    <AgeRow>
+                      <h3>나이 : </h3>
+                      <h3>{age ? age.age : ''}</h3>
+                    </AgeRow>
+                    <GenderRow>
+                      <h3>성별 : </h3>
+                      <h3>{gender ? gender.gender : ''}</h3>
+                    </GenderRow>
+                    <CountryRow>
+                      <h3>국가 : </h3>
+                      <h3>{nation ? nation.country.map(c => c.country_id).join(' or ') : ''}</h3>
+                    </CountryRow>
+                  </Fragment>
+                  : <NotFoundImage name={name} />
+                : undefined
+            }
+          </FormContainer>
+        </ThemeProvider>
+      )}
+    </ThemeDispatch.Consumer>
   )
 }
 
