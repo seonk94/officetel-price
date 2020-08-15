@@ -28,11 +28,11 @@ function BookLoader() {
 
   return (
     <BookLoaderContainer>
-      <BookImg src={BookIcon} alt='Book Image'/>
+      <BookImg src={BookIcon} alt='Book Image' />
       <SearchIconContainer>
         <span className="material-icons">
           search
-      </span>
+        </span>
       </SearchIconContainer>
     </BookLoaderContainer>
   )
