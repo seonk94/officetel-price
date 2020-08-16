@@ -11,7 +11,7 @@ export const darkTheme = {
   colors: {
     mainTextColor: '#fff',
     subTextColor: '#000',
-    mainBgColor: '#000',
+    mainBgColor: '#1e1f21',
     subBgColor: '#fff',
   }
 }

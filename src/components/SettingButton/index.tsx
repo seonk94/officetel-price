@@ -9,6 +9,7 @@ const SettingButtonDiv = styled.div`
   position: absolute;
   top: 0px;
   right: 0px;
+  margin: 4px;
 
   span {
     background: #ddd;
