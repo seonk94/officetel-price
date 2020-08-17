@@ -6,4 +6,4 @@ export default {
   component: BookLoader
 }
 
-export const bookLoaderStory = () => <BookLoader />
+export const BookLoaderStory = () => <BookLoader />

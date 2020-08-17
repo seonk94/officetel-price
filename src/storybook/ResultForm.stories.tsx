@@ -6,15 +6,15 @@ export default {
   component: ResultForm
 }
 
-export const searchedResultFormStory = () => <ResultForm
+export const SearchedResultFormStory = () => <ResultForm
   name='Hong'
   loadingStatus={'searched'}
 />
-export const searchingResultFormStory = () => <ResultForm
+export const SearchingResultFormStory = () => <ResultForm
   name='Hong'
   loadingStatus={'searching'}
 />
-export const waitingResultFormStory = () => <ResultForm
+export const SaitingResultFormStory = () => <ResultForm
   name='Hong'
   loadingStatus={'waiting'}
 />

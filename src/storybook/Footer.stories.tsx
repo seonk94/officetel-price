@@ -6,4 +6,4 @@ export default {
   component: Footer
 }
 
-export const footerFieldStory = () => <Footer />
+export const FooterFieldStory = () => <Footer />

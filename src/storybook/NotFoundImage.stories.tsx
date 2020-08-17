@@ -6,6 +6,6 @@ export default {
   component: NotFoundImage,
 }
 
-export const notFoundImageStory = () => <NotFoundImage
+export const NotFoundImageStory = () => <NotFoundImage
   name='name'
 />

@@ -6,7 +6,7 @@ export default {
   component: NameField,
 }
 
-export const nameFieldStory = () => <NameField
+export const NameFieldStory = () => <NameField
   setName={() => { }}
   searchName={async () => { }}
 />
