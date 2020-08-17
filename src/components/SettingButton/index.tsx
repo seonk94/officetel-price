@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import SettingCard from '../SettingCard';
 
 interface SettingButtonProps {
   toggleTheme: () => void;
@@ -11,7 +12,7 @@ const SettingButtonDiv = styled.div`
   right: 0px;
   margin: 4px;
 
-  span {
+  .material-icons {
     background: #ddd;
     border-radius: 50%;
     width: fit-content;
@@ -30,11 +31,14 @@ const SettingButtonDiv = styled.div`
 
 function SettingButton({ toggleTheme }: SettingButtonProps) {
 
+  const [showCard, setShowCard] = useState(false);
+
   return (
     <SettingButtonDiv>
-      <span className="material-icons" onClick={toggleTheme}>
+      <span className="material-icons" onClick={() => setShowCard(!showCard)}>
         settings
       </span>
+      {showCard && <SettingCard toggleTheme={toggleTheme} />}
     </SettingButtonDiv>
   )
 }
