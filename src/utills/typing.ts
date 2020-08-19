@@ -6,7 +6,7 @@ export class Typing {
   public ref: React.RefObject<any>;
   public typingSpeed: number;
 
-  constructor(ref: React.RefObject<any>, text: String, typingSpeed: number = 500) {
+  constructor(ref: React.RefObject<any>, text: String, typingSpeed: number = 100) {
     this.textArray = text.split('');
     this.ref = ref;
     this.currentIndex = 0;
@@ -17,13 +17,18 @@ export class Typing {
     this.interval = setInterval(() => {
       this.intervalFunction()
     }, this.typingSpeed);
+    return this
   }
 
   public intervalFunction() {
-    if (this.textArray.length > this.currentIndex) {
+    if (this.textArray.length > this.currentIndex && this.ref.current) {
       this.ref.current.append(this.textArray[this.currentIndex++])
     } else {
-      clearInterval(this.interval);
+      this.clearCurrentInterval();
     }
+  }
+
+  public clearCurrentInterval() {
+    clearInterval(this.interval)
   }
 }
