@@ -219,3 +219,9 @@ export const FillOffset = keyframes`
     fill-opacity: 1
   }
 `
+
+export const Cursor = keyframes`
+  0% { border-right: 1px solid #fff }
+  50% { border-right: 1px solid #000 }
+  100% { border-right: 1px solid #fff }
+`
