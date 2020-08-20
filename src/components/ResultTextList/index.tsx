@@ -15,6 +15,8 @@ const FormRow = styled.div`
   align-items: center;
   color: ${props => props.theme.colors.mainTextColor};
   font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 16px;
 `
 
 function ResultTextList({ age, gender, nation }: ResultTextListProps) {

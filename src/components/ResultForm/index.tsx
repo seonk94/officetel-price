@@ -26,7 +26,6 @@ function ResultForm({ name, age, gender, nation, loadingStatus }: ResultFormProp
   const validNation = nation && nation.country.length > 0;
   const validData = validAge && validGender && validNation;
 
-
   return (
     <ThemeDispatch.Consumer>
       {(theme) => (
