@@ -60,4 +60,4 @@ function ResultTextList({ age, gender, nation }: ResultTextListProps) {
     </Fragment>
   )
 }
-export default ResultTextList;
+export default React.memo(ResultTextList);
