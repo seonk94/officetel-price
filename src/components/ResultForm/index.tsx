@@ -1,6 +1,4 @@
 import React from 'react';
-import { IAgify, IGenderize, INationalize } from '@/src/types/api';
-import { LoadingStatus } from '@/src/types';
 import styled, { ThemeProvider } from 'styled-components';
 import NotFoundImage from '@/src/components/NotFoundImage';
 import AlphaGoImage from '../AlphaGoImage';

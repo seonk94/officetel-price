@@ -1,12 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-
 import App from './App';
 import { createGlobalStyle } from 'styled-components';
-import combineReducers from './reducers';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -16,12 +12,11 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const store = createStore(combineReducers)
 
 ReactDOM.render(
-  <Provider store={store}>
+  <React.StrictMode>
     <GlobalStyle />
     <App />
-  </Provider>,
+  </React.StrictMode>,
   document.getElementById('root') as HTMLElement
 );

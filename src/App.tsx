@@ -2,7 +2,6 @@ import React from 'react';
 import Main from '@/src/screens/MainScreen';
 import { useTheme } from './hooks/useTheme';
 import { lightTheme } from './style/theme';
-import { CustomTheme } from './types';
 import SettingButton from './components/SettingButton';
 import styled, { ThemeProvider } from 'styled-components';
 

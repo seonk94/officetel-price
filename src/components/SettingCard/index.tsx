@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import SwitchButton from '../SwitchButton';
 import { darkTheme } from '@/src/style/theme';
-import { CustomTheme } from '@/src/types';
 import { ThemeDispatch } from '@/src/App';
 
 interface SettingCardProps {

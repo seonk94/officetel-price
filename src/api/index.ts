@@ -1,4 +1,3 @@
-import { INationalize, IGenderize, IAgify } from '@/src/types/api';
 import axios, { AxiosResponse } from 'axios';
 
 /* https://api.nationalize.io?name=michael */

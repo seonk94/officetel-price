@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { lightTheme, darkTheme } from '@/src/style/theme';
-import { ThemeMode } from '../types';
 
 export const useTheme = () => {
 

@@ -2,7 +2,6 @@ import React, { Fragment, useEffect } from 'react';
 import styled from 'styled-components';
 import { CursorSpan } from '@/src/style/common';
 import { Typing } from '@/src/utills/typing';
-import { IAgify, IGenderize, INationalize } from '@/src/types/api';
 
 interface ResultTextListProps {
   age?: IAgify;
@@ -27,7 +26,7 @@ function ResultTextList({ age, gender, nation }: ResultTextListProps) {
 
   useEffect(() => {
     if (age && ageRef.current) {
-      new Typing(ageRef, `나이 : ${age.age}`).typing();
+      new Typing(ageRef, `나이 : ${age.age}`).typing()
     }
   }, [age, ageRef])
 
